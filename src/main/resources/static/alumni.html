@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Satsang Alumni</title>
+  <style>
+     body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+    .alumni-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.alumni-box {
+  background-color: #222;
+  border: 2px solid #555;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  color: white;
+  width: 90%;
+  max-width: 1000px;
+  height: auto; /* Let content decide height */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.alumni-box h3 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 2rem;
+  color: aqua;
+}
+
+.alumni-box p {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .alumni-box {
+    padding: 15px;
+    width: 90%;
+  }
+  .alumni-box h3 {
+    font-size: 41px;
+  }
+  .alumni-box p {
+    font-size: 30px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  .alumni-container {
+    padding: 10px;
+    gap: 15px;
+  }
+  .alumni-box {
+    padding: 15px;
+    width: 100%;
+  }
+  .alumni-box h3 {
+    font-size: 40px;
+  }
+  .alumni-box p {
+    font-size: 30px;
+  }
+}
+
+  </style>
+</head>
+<body>
+<div style="text-align: right; margin-bottom: 20px;">
+  <input type="text" id="searchInput" placeholder="Search Alumni name"
+         style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 420px; height:35px ;font-size: 30px; text-align: center;">
+</div>
+
+
+  <h1 style="text-align: center;color: burlywood; font-size: 59px; margin-top: 60px;">Satsang Alumni</h1>
+  <div class="alumni-container">
+    <div class="alumni-box">
+      <h3>Kapilendra Prusty</h3>
+      <p><strong>Phone:</strong> 8917243944</p>
+      <p><strong>Branch:</strong>MME </p>
+      <p><strong>Passing Year:</strong> 2020</p>
+      <p><strong>Address:</strong>Rourkela </p>
+      <p><strong>Designation:</strong> NA</p>
+    </div>
+
+    <!-- Add more alumni boxes below -->
+    <div class="alumni-box">
+      <h3>SUBHAM KUMAR PATRA</h3>
+      <p><strong>Phone:</strong>8144674339 </p>
+      <p><strong>Branch:</strong>EE</p>
+      <p><strong>Passing Year:</strong> 2022</p>
+      <p><strong>Address:</strong>PANCHAPADA, HALADIPADA, BALASORE, ODISHA, 756027 </p>
+      <p><strong>Designation:</strong>ASSISTANT MANAGER AT AMNS INDIA LTD. </p>
+    </div>
+    <div class="alumni-box">
+      <h3>Pradipta Sundar Rath</h3>
+      <p><strong>Phone:</strong> 8249687964</p>
+      <p><strong>Branch:</strong>ME </p>
+      <p><strong>Passing Year:</strong> 2021</p>
+      <p><strong>Address:</strong>Tankol , khordha, odisha pincode -752021 </p>
+      <p><strong>Designation:</strong>Mtech in IIT guwahati</p>
+    </div>
+    <div class="alumni-box">
+      <h3>DWEAIPAYAN DALAI</h3>
+      <p><strong>Phone:</strong>9583725482</p>
+      <p><strong>Branch:</strong>CE </p>
+      <p><strong>Passing Year:</strong> 2022</p>
+      <p><strong>Address:</strong>Bhubaneswar</p>
+      <p><strong>Designation:</strong>Software engineer </p>
+    </div>
+    <div class="alumni-box">
+      <h3>RAJESH KUMAR BEHERA</h3>
+      <p><strong>Phone:</strong> 7683947467</p>
+      <p><strong>Branch:</strong>CE </p>
+      <p><strong>Passing Year:</strong> 2021</p>
+      <p><strong>Address:</strong>At/Po- sadha, Dist-keonjhar </p>
+      <p><strong>Designation:</strong>Public Works department junior engineer, Government of odisha </p>
+    </div>
+    <div class="alumni-box">
+      <h3>B Priyajogi</h3>
+      <p><strong>Phone:</strong>7855919667</p>
+      <p><strong>Branch:</strong>CE</p>
+      <p><strong>Passing Year:</strong> 2024</p>
+      <p><strong>Address:</strong>Chatrapur, Ganjam, Odisha (761020) </p>
+      <p><strong>Designation:</strong>MBA student</p>
+    </div>
+
+  </div>
+
+  <script>
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('keyup', function () {
+    const filter = searchInput.value.toLowerCase();
+    const boxes = document.querySelectorAll('.alumni-box');
+
+    boxes.forEach(box => {
+      const name = box.textContent.toLowerCase();
+      box.style.display = name.includes(filter) ? 'block' : 'none';
+    });
+  });
+</script>
+
+
+</body>
+</html>

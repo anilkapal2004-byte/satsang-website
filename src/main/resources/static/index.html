@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VSSUT SATSANG</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  
+
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color:  #101010;
+      color: white;
+      padding: 0;
+    }
+
+    
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    
+   
+    /* Dropdown menu */
+    .submenu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 200vh;
+      background-color: #101010;;
+      overflow-y: auto;
+      z-index: 1000;
+      padding-top: 40px;
+      
+    }
+
+    .submenu a {
+      display: block;
+      padding: 12px 18px;
+      color: white;
+      text-decoration: none;
+      text-align: left;
+    }
+
+    .submenu a:hover {
+      background-color: #222;
+    }
+
+
+
+    /*  hamburger close button cross adjustment*/
+    .submenu > div[onclick] {
+      position: absolute;
+      top: 8px;
+      left: 20px;
+      font-size: 24px;
+      font-weight: 100;
+      letter-spacing: 1px;
+      color: white;
+      cursor: pointer;
+      z-index: 1100;
+      user-select: none;
+    }
+
+    /* Centered image class */
+    .centerImage {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Image container */
+    .image-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .image-grid div {
+      flex: 1 1 200px;
+      max-width: 265px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      border: 2px solid white;
+      display: block;
+      margin: 0 auto;
+    }
+
+    
+    /* Search Input */
+    #searchBar {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 1000px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      display: block;
+      color: #101010;
+      font-size: 16px;
+    }
+
+    .bhajan-entry {
+      display: none;
+      margin-top: 20px;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .bhajan-entry h3 {
+      margin-top: 0;
+    }
+
+    .bhajan-entry pre {
+      white-space: pre-wrap;
+      font-family: inherit;
+      font-size: 15px;
+      color: white;
+      margin: 0 0 10px 0;
+    }
+
+    .youtube-link {
+      color: #ff4444;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .youtube-link:hover {
+      text-decoration: underline;
+    }
+
+    
+    /* Responsive styles */
+    @media (max-width: 900px) {
+      .image-grid {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .image-grid div {
+        max-width: 350px;
+        width: 90vw;
+      }
+
+      
+    }
+
+    @media (max-width: 800px) {
+  #searchBar {
+    width: 74.5vw;
+    max-width: 90vw;
+    margin: 0 auto; /* centers the search bar */
+    display: block; /* ensures margin auto works properly */
+  }
+}
+
+@media (max-width: 600px) {
+      .submenu {
+        width: 100vw !important;
+        padding-top: 50px;
+        height: 100vh;
+      }
+
+      .submenu a {
+        font-size: 18px;
+        padding: 12px 10px;
+      }
+
+      .video-iframe {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      footer .fa-youtube {
+      font-size: 24px;
+      margin-right: 0.5px;
+      color: white;
+    }
+
+    }
+
+
+
+
+
+    @media (max-width: 900px) {  /* Adjust breakpoint for tablets/mobiles as needed */
+  
+  
+  /* Optionally hide the down triangle if you want */
+  /* .menu-title .triangle {
+    display: none;
+  } */
+  
+  /* Adjust padding and width so no extra space is taken */
+  .menu-title {
+    padding: 0;
+    width: auto;
+  }
+}
+
+  </style>
+</head>
+
+
+
+<body>
+  <nav>
+    <div>
+      <div class="menu-item">
+        <div class="menu-title" onclick="toggleMenu('satsangMenu')" aria-label="Toggle Menu" tabindex="0" role="button">
+     <div class="hamburger-icon" aria-hidden="true">
+            <div></div>
+            <div></div>
+            <div></div>
+
+          </div>
+        </div>
+      </div>
+<!--down triangle style in the search bar of nav-->
+
+
+
+    <div class="submenu" id="satsangMenu" aria-label="Satsang Menu" role="menu">
+      <div onclick="closeMenu()" role="button" tabindex="0" aria-label="Close Menu">✕</div>
+      <a href="prayer.html" role="menuitem">Prayer</a>
+      <a href="annualsatsang2025.html" role="menuitem">Annual Satsang</a>
+      <a href="alumni.html" role="menuitem">Satsang Alumni</a>
+      <a href="deogarh trip.html" role="menuitem">Deogarh trip</a>
+      <a href="oblation.html" role="menuitem">Oblation</a>
+      <a href="about.html" role="menuitem">About</a>
+      <a href="contact.html" role="menuitem">Contact Us</a>
+
+    </div>
+  </nav>
+
+  <section class="SRI SRI THAKUR ANUKULCHANDRA" style="padding: 40px 20px;">
+    <div class="carousel-container">
+  <div class="carousel-slide">
+    <img src="sree sree Borda.png" alt="Sree Sree Borda" />
+    <p>Sree Sree Borda</p>
+  </div>
+  <div class="carousel-slide">
+    <img src="sree sree Thakur.png" alt="sree sree Thakur" />
+    <p>Sree Sree Thakur</p>
+  </div>
+  <div class="carousel-slide">
+    <img src="middle logo.jpg" alt="VSSUT Satsang" />
+    <p>VSSUT Satsang</p>
+  </div>
+  <div class="carousel-slide">
+    <img src="sree sree Boroma.png" alt="sree sree Boroma" />
+    <p>Sree Sree Boroma</p>
+  </div>
+  <div class="carousel-slide">
+    <img src="sree sree Acharyadev.png" alt="sree sree Acharyadev" />
+    <p>Sree Sree Acharyadev</p>
+  </div>
+
+  <!-- Dots navigation -->
+  <div class="carousel-dots" id="carouselDots"></div>
+</div>
+
+
+    <div class="quote-container" role="region" aria-labelledby="quoteTitle">
+      <blockquote>
+        “Going to school only doesn't make a student, and taking initiation only doesn't make a disciple.The heart  should always be kept open to carry out the orders of the Master or Teacher. Have firm faith within.Whatever He says must be done and that without objection or excuse — rather, with the greatest pleasure. The student or disciple who gives his all in carrying out the orders of the Master with pleasure is never disappointed. The disciple's duty is to materialize the commands of his Master and to move on, taking Him as the Ideal. Whenever you find that on getting any command from his Master the disciple is pleased and his face blooms, you will  know that strength has come in his heart.”
+      </blockquote>
+      <p id="quoteTitle">~ Sree Sree Thakur ~ </p>
+    </div>
+  </section>
+
+  <section class="intro" aria-label="Welcome Section">
+    <h2>Welcome to VSSUT Satsang</h2>
+  </section>
+
+  <div class="intro" aria-label="About VSSUT Satsang">
+    <p>
+      Founded by spiritually inclined satsangee gurubhais of VSSUT, this Satsang group carries forward the teachings and mission of Sree Sree Thakur Anukulchandra.We regularly hold weekly and annual satsangs, keeping alive the spirit of devotion. Through heartfelt gatherings and our love towards thakurji, we continue the journey of love, faith, and unity.
+    </p>
+  </div>
+
+  <section class="intro" aria-label="Bhajan Search">
+    <h2>Search Thakur Bhajan</h2>
+  </section>
+
+<div class="intro" aria-label="Search Bhajan Input" style="text-align:center;">
+  <input
+    type="text"
+    id="searchBar"
+    placeholder="Type bhajan title"
+    aria-label="Type bhajan title"
+    style="width:60%; padding:12px; border-radius:8px;"
+  />
+
+  <br><br>
+
+  <button id="searchBtn" style="
+      padding:10px 22px;
+      border:none;
+      border-radius:8px;
+      background:#d6a25e;
+      color:black;
+      font-size:16px;
+      cursor:pointer;
+  ">
+    🔍 Search
+  </button>
+</div>
+
+<br>
+
+
+
+<div id="bhajanContainer" style="max-width:90vw; margin:40px auto;"></div>
+<div id="results" style="max-width: 900px; margin: 30px auto;"></div>
+
+
+ 
+
+  <script>
+   
+ function toggleMenu(menuId) {
+  var menu = document.getElementById(menuId);
+  if (menu) {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+}
+
+function closeMenu() {
+  const el = document.getElementById("satsangMenu");
+  el.style.display = "none";
+}
+
+
+
+     
+
+    //javascript code for carsole style
+
+const carouselContainer = document.querySelector('.carousel-container');
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+carouselContainer.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+carouselContainer.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipeGesture();
+}, false);
+
+function handleSwipeGesture() {
+  const swipeThreshold = 50; // Minimum distance in px to count as a swipe
+  const dx = touchEndX - touchStartX;
+
+  if (Math.abs(dx) > swipeThreshold) {
+    if (dx < 0) {
+      // Swipe Left -> Next Slide
+      moveCarousel(1);
+      startAutoSlide();
+    } else {
+      // Swipe Right -> Previous Slide
+      moveCarousel(-1);
+      startAutoSlide();
+    }
+  }
+}
+    
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dotsContainer = document.getElementById('carouselDots');
+
+// Create dots
+slides.forEach((_, index) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => {
+    showSlide(index);
+    startAutoSlide();
+  });
+  dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('span');
+
+// Show slide and update active dot
+function showSlide(index) {
+  currentSlide = index;
+  slides.forEach((slide, i) => {
+    slide.style.display = (i === index) ? 'flex' : 'none';
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+// Move by step and trigger auto-slide logic
+function moveCarousel(step) {
+  let newIndex = currentSlide + step;
+  if (newIndex < 0) newIndex = slides.length - 1;
+  if (newIndex >= slides.length) newIndex = 0;
+  showSlide(newIndex);
+  startAutoSlide();
+}
+
+showSlide(0); // Init
+
+// Automatic slide ONLY after first user action
+let autoSlideInterval = null;
+let started = false;
+
+function startAutoSlide() {
+  if (!started) {
+    started = true;
+  }
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(() => {
+    moveCarousel(1);
+  }, 4000);
+}
+
+// Attach to navigation arrows (if present)
+document.querySelectorAll('.carousel-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    startAutoSlide();
+  });
+});
+  </script>
+  <script src="bhajan.js"></script>
+
+
+  <footer>
+    <div>
+      <div>
+        <h3>Contact Us</h3>
+        <address>
+          Address - Pulaha hall of residence (room no : C-703,704),<br />
+          Vssut burla, Dist- Sambalpur<br />
+          PIN: 768018, Odisha, India.
+        </address>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:satsangvssut@gmail.com">satsangvssut@gmail.com</a>
+        </p>
+        <p>
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer"
+            >Join Our WhatsApp Community</a>
+        </p>
+      </div>
+
+      <div style="text-align: center;">
+        <h3>Follow Us</h3>
+        <div style="display: flex; gap: 20px; justify-content: center; font-size: 24px;">
+          <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer"><i
+              class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 30px;">&copy; VSSUT Satsang | All rights reserved</p>
+    <p style="text-align:center; margin-top:10px; font-size:13px; opacity:0.6;">
+  <a href="admin_login.html" style="color:#d6a25e; text-decoration:none;">
+    admin Login
+  </a>
+</p>
+
+  </footer>
+</body>
+
+</html>

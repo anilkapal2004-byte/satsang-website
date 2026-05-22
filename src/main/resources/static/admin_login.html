@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Login - VSSUT Satsang</title>
+  <style>
+    body {
+      background:#0f0f0f;
+      color:white;
+      font-family: Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .box {
+      background:#161616;
+      padding:30px;
+      border-radius:12px;
+      width:320px;
+      text-align:center;
+      box-shadow:0 0 20px rgba(214,162,94,0.3);
+    }
+    input, button {
+      width:100%;
+      padding:10px;
+      margin-top:12px;
+      border-radius:6px;
+      border:none;
+    }
+    button {
+      background:#d6a25e;
+      cursor:pointer;
+      font-weight:bold;
+    }
+    #msg { margin-top:12px; color:#ff8080; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Admin Login</h2>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="adminLogin()">Login</button>
+  <p id="msg"></p>
+  
+
+  <div id="msg"></div>
+</div>
+
+<script>
+async function adminLogin() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const msg = document.getElementById("msg");
+
+  if (!username || !password) {
+    msg.innerText = "Fill all fields";
+    return;
+  }
+
+  const response = await fetch(
+    `http://localhost:8080/admin/login?username=${username}&password=${password}`,
+    {
+      method: "GET",
+      credentials: "include"   // 🔥 REQUIRED
+    }
+  );
+
+  const result = await response.text();
+
+  if (result === "LOGIN_SUCCESS") {
+    window.location.href = "admin_dashboard.html";
+  } else {
+    msg.innerText = result;
+  }
+}
+</script>
+
+
+</body>
+</html>

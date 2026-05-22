@@ -1,0 +1,737 @@
+nav {
+      background-color: #101010;
+      padding: 10px 10px 10px 10px;
+    }
+
+    nav {
+      background-color: #101010;
+      padding: 21px 21px 21px 21px;
+      box-shadow: 0 1px 1px rgba(250, 250, 255, 0.2);
+    }
+
+
+    nav >div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+nav a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+
+@media (max-width: 600px) {
+     div > nav {
+        flex-direction: row;
+        gap: 5px;
+        align-items: baseline;
+      }
+    }
+
+
+
+
+.submenu a {
+  display: block;
+  margin-left: 15px;
+  padding: 8px 0;
+  color: orange;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.submenu a:hover {
+  color: #ffcc00;
+}
+
+/* Year submenu inside submenu (hidden by default) */
+.year-submenu {
+  margin-left: 25px;
+  display: none;
+}
+
+.bhajan-entry {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #111;
+  display: none;
+}
+
+/* Links inside bhajan entries and resources */
+a.youtube-link,
+a.resource-link {
+  color: #90caf9;
+  display: block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a.youtube-link:hover,
+a.resource-link:hover {
+  color: yellow;
+}
+
+/* Search Bar */
+#searchBar {
+  padding: 0.5rem;
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 800px) {
+  nav a,
+  .menu-title {
+    font-size: 16px;
+  }
+
+  #searchBar {
+    max-width: 45vw;
+    font-size: 1rem;
+  }
+
+  .submenu a {
+    font-size: 14px;
+    padding: 6px 0;
+    margin-left: 10px;
+  }
+
+  .year-submenu {
+    margin-left: 15px;
+  }
+}
+
+@media(max-width:320px) {
+  nav {
+    padding: 0.5px;
+  }
+nav > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* up by default — can be center or flex-end */
+  align-items: flex-start;     /* left by default — can be center or flex-end */
+  gap: 10px;
+  height: 100%; /* Needed if you want vertical centering */
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15px;
+  font-size: 25px;
+  align-items: flex-start;
+  position: absolute; /* or fixed */
+  top: 8px;  /* distance from top */
+  left: 10px; /* distance from right */
+  cursor: pointer; /* pointer cursor on hover */
+}
+
+.hamburger-icon div {
+  background-color: #fff;
+  height: 1.5px;
+  width: 25px;
+  border-radius: 1px;
+}
+
+
+.submenu > div[onclick] {
+      position: relative;
+      top: 2px;
+      left: 50px;
+      font-size: 24px;
+      font-weight: 100;
+      letter-spacing: 1px;
+      color: white;
+      cursor: pointer;
+      z-index: 1100;
+      user-select: none;
+    }
+
+body {
+  background-color: #101010;;
+  color: white;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+}
+
+  
+/*adjust the submenu sectionm width and height for laptop devices*/
+  .submenu {
+    width: 20vw !important;
+    padding-top: 50px !important;
+  }
+
+  .submenu a {
+  font-size: 16px;
+  margin-left: 10px;
+  margin-bottom: 14px; /* Adjust the value for more/less vertical gap */
+  display: block;      /* Ensures margin affects block vertically */
+}
+
+
+  .bhajan-entry {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  
+
+
+/* down triangle removed for mobile and tab view */
+
+
+
+/* Hide triangle on small screens */
+@media (max-width: 900px) {
+  .menu-title .triangle {
+    display: none;
+  }
+}
+
+
+/* Carousel styles for mobile/tablet (up to 768px) */
+@media (max-width: 768px) {
+  .carousel-container {
+    position: relative;
+    max-width: 290px;
+    margin: 30px auto 0 auto;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  .carousel-slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fade 0.7s;
+  }
+
+  .carousel-slide img {
+  width: 280px;          /* Set your preferred width */
+  height: 350px;         /* Set your preferred height */
+  object-fit: cover;     /* Ensures image fills box and is not stretched */
+  border-radius: 10px;   /* For visual consistency */
+  border: 2px solid white;
+  display: block;
+  margin: 0 auto;
+}
+
+  .carousel-dots {
+    text-align: center;
+    margin: 15px 0 5px 0;
+  }
+
+  .carousel-dots span {
+    display: inline-block;
+    width: 15px;
+    height: 10px;
+    margin: 0 6px;
+    background-color: #bbb;
+    border-radius: 4.5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .carousel-dots span.active {
+    background-color: white;
+  }
+}
+
+/* Styles for devices wider than 768px - show all slides side by side, no carousel */
+@media (min-width: 769px) {
+  .carousel-container {
+    max-width: 100%;  /* full width or adjust as needed */
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;        /* spacing between slides */
+    overflow: visible;
+    border-radius: 0;
+    justify-content: center;  /* centers slides horizontally */
+    margin: 30px auto;        /* keep vertical margin */
+    background: transparent;
+  }
+
+  .carousel-slide {
+    display: flex !important; /* show all slides */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: none !important;
+    width: 260px;       /* fixed or max width for each slide */
+    box-sizing: border-box;
+  }
+
+  .carousel-slide img {
+  width: 269px;          /* Set your preferred width */
+  height: 310px;         /* Set your preferred height */
+  object-fit: cover;     /* Ensures image fills box and is not stretched */
+  border-radius: 20px;   /* For visual consistency */
+  border: 2px solid white;
+  display: block;
+  margin: 0 auto;
+}
+
+
+  .carousel-dots {
+    display: none !important; /* hide dots */
+  }
+
+  /* Hide carousel buttons if any */
+  .carousel-btn {
+    display: none !important;
+  }
+
+}
+
+
+/*adjustment of paragraph of welcome to vssut satsang */
+  /* Default for desktops and laptops */
+.intro[aria-label="About VSSUT Satsang"] {
+  max-width: 1200px;           /* Wider box for large screens */
+  margin: 30px auto;
+  padding: 32px 48px;          /* Generous padding for desktop comfort */
+  background-color: #101010;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.intro[aria-label="About VSSUT Satsang"] p {
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 1.5rem;          /* Keeps your current large, readable text */
+  margin: 0;
+}
+
+/* For extra-large desktops, you can go even wider if desired: */
+@media (min-width: 1600px) {
+  .intro[aria-label="About VSSUT Satsang"] {
+    max-width: 1400px;
+    padding: 40px 80px;
+  }
+}
+
+/* ========== Mobiles: up to 600px (small phones) ========== */
+@media (max-width: 600px) {
+  .intro[aria-label="About VSSUT Satsang"] {
+    max-width: 80vw;  /* Almost full width */
+    text-align: justify;    
+    padding: 12px 16px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 0 auto;   /* Comfortable padding */
+  }
+
+  .intro[aria-label="About VSSUT Satsang"] p {
+    font-size: 19px;      /* Comfortable reading size on small screens */
+    line-height: 1.5;
+  }
+}
+
+
+/* ========== Normal Tablets: 601px to 900px ========== */
+@media (min-width: 601px) and (max-width: 900px) {
+  .intro[aria-label="About VSSUT Satsang"] {
+    max-width: 90vw;      /* Slightly narrower than full viewport */
+    padding: 20px 30px;   /* More padding for larger screen */
+  }
+
+  .intro[aria-label="About VSSUT Satsang"] p {
+    font-size: 1.25rem;   /* Slightly larger font */
+    line-height: 1.6;
+  }
+}
+
+
+/* ========== Slightly Bigger Tablets: 901px to 1024px ========== */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .intro[aria-label="About VSSUT Satsang"] {
+    max-width: 85vw;         /* Reasonable width for larger tablets */
+    padding: 25px 40px;      /* More generous padding */
+  }
+
+  .intro[aria-label="About VSSUT Satsang"] p {
+    font-size: 1.4rem;       /* Larger and more readable font */
+    line-height: 1.6;
+  }
+}
+
+
+
+/*adjustment of paragraph of sree sree thakurs black quote */
+
+/* =============================== */
+/* Quote Section Base Styles (All devices) */
+/* =============================== */
+.quote-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 10px 20px;                /* Slightly bigger padding for legibility */
+  background-color: #101010;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.quote-container blockquote {
+  font-size: 18.5px;
+  line-height: 1.4;                 /* Increased line height for better readability */
+  text-align: justify;
+  white-space: normal;
+  margin: 0;
+}
+
+.quote-container p {
+  text-align: right;
+  font-weight: bold;
+  color: burlywood;
+  font-size: 21px;
+  margin-top: 30px;
+}
+
+/* =============================== */
+/* Intro Section Base Styles (All devices) */
+/* =============================== */
+.intro {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 12px 15px;                /* Increased padding for touch-friendly spacing */
+  background-color: #101010;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.intro h2 {
+  text-align: center;
+  margin: 0;
+  color: burlywood;
+  padding-bottom: 1px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+
+/* =============================== */
+/* Responsive Media Queries */
+/* =============================== */
+
+/* Small devices - mobiles up to 600px */
+@media (max-width: 600px) {
+  .quote-container {
+    max-width: 70vw;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .quote-container blockquote {
+    font-size: 19px;
+    line-height: 1.5;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .quote-container p {
+    font-size: 16px;
+  }
+
+  .intro {
+    max-width: 95vw;
+    padding: 10px 12px;
+  }
+
+  .intro h2 {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    padding-top: -5px;
+  }
+}
+
+/* Normal tablets - 601px to 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+  .quote-container {
+    max-width: 90vw;
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+
+  .quote-container blockquote {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .quote-container p {
+    font-size: 18px;
+  }
+
+  .intro {
+    max-width: 90vw;
+    padding: 15px 20px;
+  }
+
+  .intro h2 {
+    font-size: 1.8rem;
+    padding-bottom: 7px;
+  }
+}
+
+/* Larger tablets & small laptops - 901px to 1200px */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .quote-container {
+    max-width: 85vw;
+    padding: 15px 30px;
+    font-size: 19px;
+  }
+
+  .quote-container blockquote {
+    font-size: 1.5rem;
+    line-height: 1.6;
+
+  }
+
+  .quote-container p {
+    font-size: 20px;
+  }
+
+  .intro {
+    max-width: 600px;
+    padding: 20px 30px;
+  }
+
+  .intro h2 {
+    font-size: 2.1rem;
+    padding-bottom: 8px;
+  }
+}
+
+/* Laptops and desktops - 1201px and above */
+@media (min-width: 1201px) {
+  .quote-container {
+    max-width: 1200px;
+    padding: 20px 40px;
+    font-size: 20px;
+  }
+
+  .quote-container blockquote {
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .quote-container p {
+    font-size: 21px;
+  }
+
+  .intro {
+    max-width: 600px;
+    padding: 25px 40px;
+  }
+
+  .intro h2 {
+    font-size: 2.2rem;
+    padding-bottom: 10px;
+  }
+}
+
+.hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 15px;
+    }
+
+    .hamburger-icon div {
+      background-color: #fff;
+      height: 1.5px;
+      width: 25px;
+      border-radius: 1px;
+    }
+
+    .hamburger-icon div:last-child {
+      width: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  border-top: 1px solid white;
+  font-family: Roboto, sans-serif;
+}
+
+.social-icons a {
+  margin: 0 15px;
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+
+header,
+footer {
+  background-color: #222;
+}
+
+footer {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+  }
+
+  /* Footer */
+    footer {
+      background-color: #111;
+      padding: 40px 20px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    footer > div {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    footer h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer .fa-envelope {
+      margin-right: 8px;
+    }
+
+    footer .fa-whatsapp {
+      margin-right: 8px;
+      color: #25D366;
+    }
+
+     footer .fa-instagram {
+      font-size: 24px;
+      margin-right: 20px;
+      color: white;
+    }
+
+  
+    footer .fa-youtube {
+      font-size: 24px;
+      margin-right: 20px;
+      color: white;
+    }
