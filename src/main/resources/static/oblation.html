@@ -1,67 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oblation - VSSUT Satsang</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      background-color: #1a1a1a;
-      color: #fcebd5;
-      font-family: 'Georgia', serif;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: orange;
-      margin-bottom: 30px;
-    }
-    .offering-section {
-      background-color: #1a1a1a;
-      padding: -5px;
-      margin-bottom: 2px;
-      margin-right: auto;
-      text-align: center;
-    }
-    h2 {
-      color: yellowgreen;
-      margin-bottom: 15px;
-      text-align: center;
-      font-size: 28px;
-    }
-    .qr-img {
-  max-width: 150px;
-  color: #1a1a1a;
-  height: 1.2;
-  margin-bottom: 15px;
-  display: block;       /* Make it a block element */
-  margin-left: auto;    /* Auto margin for centering */
-  margin-right: auto; 
-  text-align: center;  /* Auto margin for centering */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Oblation - VSSUT Satsang</title>
+
+<style>
+
+body{
+    background-color:#1a1a1a;
+    color:#fcebd5;
+    font-family:'Georgia', serif;
+    margin:0;
+    padding:20px;
+    text-align:center;
 }
 
-    
-    .note {
-      font-size: 28px;
-      color: yellow;
-    text-align: center;
-      margin-top: 10px;
+h1{
+    color:orange;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+h2{
+    color:yellowgreen;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.offering-section{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+}
+
+.qr-box{
+    display:inline-block;
+    border:2px solid white;
+    border-radius:20px;
+    padding:2px;
+    background-color:#111;
+}
+
+.qr-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.qr-img{
+    width:300px;
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+.note{
+    font-size:24px;
+    color:yellow;
+    text-align:center;
+    margin-top:20px;
+    line-height:1.6;
+}
+
+/* Mobile Design */
+@media screen and (max-width:768px){
+
+    body{
+        padding:10px;
     }
-  </style>
+
+    h1{
+        font-size:32px;
+        margin-bottom:25px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    .offering-section{
+        width:100%;
+    }
+
+    .qr-box{
+        width:90%;
+        padding:1px;
+        box-sizing:border-box;
+    }
+
+    .qr-img{
+        width:100%;
+        max-width:350px;
+        margin:auto;
+    }
+
+    .note{
+        font-size:18px;
+        line-height:1.6;
+        padding:0 10px;
+    }
+}
+
+</style>
 </head>
+
 <body>
-  <h1>Oblation</h1>
 
-  <div class="offering-section">
+<h1>Oblation</h1>
+
+<div class="offering-section">
+
     <h2>Offerings</h2>
-    <img src="qr code of vssut satsang for the financial year 2025-2026 updated.png" alt=" qr code for satsang offerings"
-         style="border: 2px solid white; text-align: center; color: #1a1a1a; border-radius: 20px;" width="450" height="550"/>
-    <p class="note">Scan the QR to contribute to vssut satsang</p>
-  </div>
 
-  
+    <div class="qr-box">
 
-  
+        <div class="qr-container">
+
+            <img
+                class="qr-img"
+                src="qr code of vssut satsang for the financial year 2025-2026 updated.png"
+                alt="QR Code for Satsang Offerings">
+
+        </div>
+
+    </div>
+
+    <p class="note">
+        Scan the QR to contribute to<br>
+        VSSUT Satsang
+    </p>
+
+</div>
+
 </body>
 </html>

@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function doSearch() {
 
-    fetch("http://localhost:8080/lyrics/all")
+    fetch("/lyrics/all")
       .then(res => res.json())
       .then(allBhajans => {
 

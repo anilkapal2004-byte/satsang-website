@@ -205,6 +205,47 @@ body{
     font-size:18px;
 }
 
+
+.gallery-card{
+    background:#161616;
+    border:1px solid #d6a25e;
+    border-radius:15px;
+    padding:25px;
+    color:white;
+    text-align:center;
+    box-shadow:0 0 10px rgba(214,162,94,.2);
+}
+
+.gallery-card h2{
+    color:#d6a25e;
+    margin-bottom:15px;
+}
+
+.gallery-card p{
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.gallery-card ul{
+    list-style:none;
+    padding:0;
+    margin-bottom:15px;
+}
+
+.gallery-card li{
+    margin-bottom:8px;
+}
+
+.gallery-card button{
+    background:#d6a25e;
+    color:black;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
 @media(max-width:768px){
 
 .gallery-container{
@@ -319,10 +360,118 @@ id="deogarhYears">
 
 <!-- PHOTOS -->
 
+<!-- PHOTOS / INTRO PAGE -->
+
 <div class="gallery-container"
 id="galleryContainer">
 
+<div class="gallery-card">
+<h2>Annual Satsang</h2>
+<p>
+Photos and memories from our yearly
+Satsang celebrations held with devotees
+from different places.
+</p>
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+</div>
 
+<div class="gallery-card">
+<h2>Deogarh Trip</h2>
+<p>
+Spiritual journeys, temple visits,
+devotee gatherings and memorable moments
+from Deogarh tours.
+</p>
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+</div>
+
+<div class="gallery-card">
+<h2>Weekly Satsang</h2>
+<p>
+Regular weekly satsang programs,
+bhajans, discussions and spiritual activities.
+</p>
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+</div>
+
+<div class="gallery-card">
+<h2>Alumni Meet</h2>
+<p>
+Reunion moments, interactions,
+and cherished memories with alumni.
+</p>
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+</div>
+
+<div class="gallery-card">
+<h2>Special Events</h2>
+
+<ul>
+<li>Shivratri</li>
+<li>Hanuman Jayanti</li>
+<li>Bhajan Sandhya</li>
+<li>Pana Sankranti</li>
+<li>Guru Purnima</li>
+<li>Thakur Jayanti</li>
+</ul>
+
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+
+</div>
+
+<div class="gallery-card">
+<h2>Spiritual Discussions</h2>
+
+<p>
+Meaningful discussions on Sant Mat,
+teachings of Param Purush, meditation,
+and practical spiritual life.
+</p>
+
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+
+</div>
+
+<div class="gallery-card">
+<h2>Satsang Kendra Visits</h2>
+
+<p>
+Visits to nearby Satsang Kendras,
+participation in special programs,
+and spiritual gatherings with devotees.
+</p>
+
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+
+</div>
+
+<div class="gallery-card">
+<h2>Gurubhai Meet</h2>
+
+<p>
+Current Gurubhais coming together for
+discussion, seva planning, satsang
+coordination and spiritual bonding.
+</p>
+<button onclick="openMenu()">
+Explore Gallery
+</button>
+
+</div>
 
 </div>
 
@@ -357,6 +506,10 @@ onclick="nextImage()">
 <div class="counter"
 id="counter">
 </div>
+
+
+
+
 
 </div>
 
@@ -399,9 +552,7 @@ async function loadGallery(eventType,eventYear){
  "<h2>Loading...</h2>";
 
  const response =
- await fetch(
- `http://localhost:8080/gallery/${eventType}/${eventYear}`
- );
+ await fetch(`/gallery/${eventType}/${eventYear}`)
 
  photos =
  await response.json();
