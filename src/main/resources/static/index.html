@@ -19,8 +19,9 @@
       color: white;
       padding: 0;
     }
-
     
+
+  
     .menu-item {
       display: flex;
       align-items: center;
@@ -174,6 +175,7 @@
   }
 }
 
+
 @media (max-width: 600px) {
       .submenu {
         width: 100vw !important;
@@ -238,14 +240,11 @@
       </div>
 <!--down triangle style in the search bar of nav-->
 
-
-
-    <div class="submenu" id="satsangMenu" aria-label="Satsang Menu" role="menu">
+   <div class="submenu" id="satsangMenu" aria-label="Satsang Menu" role="menu">
       <div onclick="closeMenu()" role="button" tabindex="0" aria-label="Close Menu">✕</div>
       <a href="prayer.html" role="menuitem">Prayer</a>
-      <a href="annualsatsang2025.html" role="menuitem">Annual Satsang</a>
+      <a href="gallery.html" role="menuitem">Satsang Gallery</a>
       <a href="alumni.html" role="menuitem">Satsang Alumni</a>
-      <a href="deogarh trip.html" role="menuitem">Deogarh trip</a>
       <a href="oblation.html" role="menuitem">Oblation</a>
       <a href="about.html" role="menuitem">About</a>
       <a href="contact.html" role="menuitem">Contact Us</a>
@@ -330,7 +329,6 @@
 <br>
 
 
-
 <div id="bhajanContainer" style="max-width:90vw; margin:40px auto;"></div>
 <div id="results" style="max-width: 900px; margin: 30px auto;"></div>
 
@@ -338,7 +336,8 @@
  
 
   <script>
-   
+
+ // Function to toggle the menu  
  function toggleMenu(menuId) {
   var menu = document.getElementById(menuId);
   if (menu) {
@@ -346,6 +345,8 @@
   }
 }
 
+
+// Function to close the menu
 function closeMenu() {
   const el = document.getElementById("satsangMenu");
   el.style.display = "none";
@@ -358,23 +359,23 @@ function closeMenu() {
     //javascript code for carsole style
 
 const carouselContainer = document.querySelector('.carousel-container');
-
+// Variables to track touch positions
 let touchStartX = 0;
 let touchEndX = 0;
-
+// Listen for touchstart event to record initial touch position
 carouselContainer.addEventListener('touchstart', e => {
   touchStartX = e.changedTouches[0].screenX;
 }, false);
-
+// Listen for touchend event to determine swipe direction
 carouselContainer.addEventListener('touchend', e => {
   touchEndX = e.changedTouches[0].screenX;
   handleSwipeGesture();
 }, false);
-
+// Function to handle swipe gestures
 function handleSwipeGesture() {
   const swipeThreshold = 50; // Minimum distance in px to count as a swipe
   const dx = touchEndX - touchStartX;
-
+// Check if the swipe distance exceeds the threshold
   if (Math.abs(dx) > swipeThreshold) {
     if (dx < 0) {
       // Swipe Left -> Next Slide
@@ -387,7 +388,7 @@ function handleSwipeGesture() {
     }
   }
 }
-    
+ // Carousel logic   
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const dotsContainer = document.getElementById('carouselDots');
@@ -422,13 +423,13 @@ function moveCarousel(step) {
   showSlide(newIndex);
   startAutoSlide();
 }
-
+// Initialize the carousel
 showSlide(0); // Init
 
 // Automatic slide ONLY after first user action
 let autoSlideInterval = null;
 let started = false;
-
+// Start auto-slide after user interaction
 function startAutoSlide() {
   if (!started) {
     started = true;

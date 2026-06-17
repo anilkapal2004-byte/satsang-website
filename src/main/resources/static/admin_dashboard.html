@@ -3,135 +3,306 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard</title>
+
   <style>
-    body {
+
+    body{
       background:#0f0f0f;
       color:white;
-      font-family: Arial, sans-serif;
+      font-family:Arial,sans-serif;
       padding:30px;
     }
-    .box {
-      max-width:600px;
+
+    .box{
+      max-width:700px;
       margin:auto;
       background:#161616;
       padding:25px;
       border-radius:12px;
       box-shadow:0 0 20px rgba(214,162,94,0.3);
     }
-    input, textarea, button {
+
+    input,
+    textarea,
+    button{
+
       width:100%;
-      padding:10px;
-      margin-top:12px;
-      border-radius:6px;
+      padding:12px;
+      margin-top:14px;
       border:none;
+      border-radius:8px;
+      font-size:16px;
     }
-    button {
+
+    textarea{
+      resize:vertical;
+    }
+
+    button{
       background:#d6a25e;
+      color:black;
       font-weight:bold;
       cursor:pointer;
     }
+
+    button:hover{
+      opacity:0.9;
+    }
+
+    #msg{
+      margin-top:20px;
+      text-align:center;
+      font-weight:bold;
+    }
+
   </style>
+
 </head>
+
 <body>
 
 <div class="box">
+
   <h2>Upload Bhajan</h2>
 
-  <input id="title" placeholder="Bhajan Title">
-  
-  <textarea id="lyrics" rows="8" placeholder="Bhajan Lyrics"></textarea>
-  <input id="language" placeholder="Language (Hindi / Odia)">
+  <input
+    id="title"
+    placeholder="Bhajan Title">
+
+  <textarea
+    id="lyrics"
+    rows="10"
+    placeholder="Bhajan Lyrics">
+  </textarea>
+
+  <input
+    id="language"
+    placeholder="Language">
+
+  <input
+    id="youtubeLink"
+    placeholder="YouTube Link">
+
+  <button onclick="uploadBhajan()">
+    Upload Bhajan
+  </button>
 
 
-  <button onclick="uploadBhajan()">Upload Bhajan</button>
-  <button onclick="logout()">Logout</button>
-  
-  
+  <hr>
 
-  
+<h2>Upload Gallery Photos</h2>
 
+<select id="eventType">
+  <option>Annual Satsang</option>
+  <option>Deogarh Trip</option>
+  <option>Weekly Satsang</option>
+  <option>Alumni Meet</option>
+  <option>Special Events</option>
+</select>
+
+<select id="eventYear">
+  <option>2023</option>
+  <option>2024</option>
+  <option>2025</option>
+  <option>2026</option>
+</select>
+
+<input
+  type="file"
+  id="galleryImages"
+  multiple>
+
+<button onclick="uploadGallery()">
+  Upload Photos
+</button>
+
+<p id="galleryMsg"></p>
+
+  <button onclick="logout()">
+    Logout
+  </button>
 
   <p id="msg"></p>
+
 </div>
 
 <script>
-  
-async function uploadBhajan() {
 
-  const title = document.getElementById("title").value.trim();
-  const language = document.getElementById("language").value.trim();
-  const lyrics = document.getElementById("lyrics").value.trim();
-  const msg = document.getElementById("msg");
 
-  if (!title || !language || !lyrics) {
-    msg.innerText = "⚠️ Please fill all fields";
+
+
+
+// Placeholder function for gallery upload
+async function uploadGallery() {
+
+  const eventType =
+  document.getElementById("eventType").value;
+
+  const eventYear =
+  document.getElementById("eventYear").value;
+
+  const files =
+  document.getElementById("galleryImages").files;
+
+  const msg =
+  document.getElementById("galleryMsg");
+
+  if (files.length === 0) {
+
+    msg.innerText =
+    "Please select images";
+
     msg.style.color = "orange";
+
     return;
   }
 
-  try {
-    const response = await fetch("http://localhost:8080/admin/addBhajan", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      credentials: "include",   // 🔥 session must go
-      body: JSON.stringify({ title, language, lyrics })
-    });
+  const formData =
+  new FormData();
 
-    const result = await response.text();
+  formData.append(
+    "eventType",
+    eventType
+  );
+
+  formData.append(
+    "eventYear",
+    eventYear
+  );
+
+  for (let i = 0; i < files.length; i++) {
+
+    formData.append(
+      "files",
+      files[i]
+    );
+  }
+
+  try {
+
+    const response =
+    await fetch(
+      "http://localhost:8080/gallery/upload",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+    const result =
+    await response.text();
 
     msg.innerText = result;
-    msg.style.color = result.includes("SUCCESS") ? "lightgreen" : "red";
+    msg.style.color = "lightgreen";
 
-    if (result.includes("SUCCESS")) {
-      document.getElementById("title").value = "";
-      document.getElementById("language").value = "";
-      document.getElementById("lyrics").value = "";
-    }
+  }
 
-  } catch (e) {
-    msg.innerText = "Server error ❌";
+  catch(error) {
+
+    msg.innerText =
+    "Upload failed";
+
     msg.style.color = "red";
   }
 }
 
+// Function to upload bhajan details
 
-async function deleteBhajan(id) {
+async function uploadBhajan(){
 
-  if (!confirm("Are you sure you want to delete this bhajan?")) return;
+  const title =
+  document.getElementById("title").value.trim();
 
-  const response = await fetch(
-    `http://localhost:8080/admin/deleteBhajan/${id}`,
-    {
-      method: "DELETE",
-      credentials: "include"
+  const lyrics =
+  document.getElementById("lyrics").value.trim();
+
+  const language =
+  document.getElementById("language").value.trim();
+
+  const youtubeLink =
+  document.getElementById("youtubeLink").value.trim();
+
+  const msg =
+  document.getElementById("msg");
+
+  if(!title || !lyrics || !language){
+
+    msg.innerText =
+    "⚠️ Please fill all required fields";
+
+    msg.style.color = "orange";
+
+    return;
+  }
+
+  // Send data to server
+
+  try{
+
+    const response = await fetch(
+      "http://localhost:8080/admin/addBhajan",
+      {
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        credentials:"include",
+
+        body:JSON.stringify({
+          title,
+          lyrics,
+          language,
+          youtubeLink
+        })
+      }
+    );
+
+    // Handle server response
+
+    const result = await response.text();
+
+    msg.innerText = result;
+
+    msg.style.color =
+    result.includes("SUCCESS")
+    ? "lightgreen"
+    : "red";
+
+    // Clear form if upload was successful
+
+    if(result.includes("SUCCESS")){
+
+      document.getElementById("title").value = "";
+
+      document.getElementById("lyrics").value = "";
+
+      document.getElementById("language").value = "";
+
+      document.getElementById("youtubeLink").value = "";
     }
-  );
 
-  const result = await response.text();
-  alert(result);
+  }
 
-  // reload list after delete
-  loadBhajans();
+  // Handle network errors
+
+  catch(e){
+
+    msg.innerText = "Server error ❌";
+
+    msg.style.color = "red";
+  }
 }
+// Placeholder logout function
+function logout(){
 
-async function editBhajan(id) {
-  await fetch(`http://localhost:8080/admin/editBhajan/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    credentials: "include",
-    body: JSON.stringify({
-      title: "New Title",
-      lyrics: "Updated lyrics",
-      language: "Odia"
-    })
-  });
+  window.location.href =
+  "admin_login.html";
 }
-
 
 </script>
-
 
 </body>
 </html>

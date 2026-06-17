@@ -61,20 +61,7 @@ public String addBhajan(@RequestBody Lyrics lyrics, HttpSession session) {
     lyricsRepository.save(lyrics);
     return "BHAJAN_ADDED_SUCCESSFULLY";
 }
-@DeleteMapping("/deleteBhajan/{id}")
-public String deleteBhajan(@PathVariable Long id, HttpSession session) {
 
-    if (session.getAttribute("admin") == null) {
-        return "UNAUTHORIZED";
-    }
-
-    if (!lyricsRepository.existsById(id)) {
-        return "NOT_FOUND";
-    }
-
-    lyricsRepository.deleteById(id);
-    return "BHAJAN_DELETED";
-}
 @PutMapping("/editBhajan/{id}")
 public String editBhajan(@PathVariable Long id,
                          @RequestBody Lyrics updated,
@@ -93,6 +80,26 @@ public String editBhajan(@PathVariable Long id,
 
     lyricsRepository.save(existing);
     return "BHAJAN_UPDATED";
+}
+
+// ================= YOUTUBE LINK =================
+@PutMapping("/addYoutube")
+public String addYoutubeLink(
+        @RequestParam String title,
+        @RequestParam String youtubeLink) {
+
+    Lyrics bhajan =
+    lyricsRepository.findByTitleIgnoreCase(title);
+
+    if (bhajan == null) {
+        return "BHAJAN_NOT_FOUND";
+    }
+
+    bhajan.setYoutubeLink(youtubeLink);
+
+    lyricsRepository.save(bhajan);
+
+    return "YOUTUBE_LINK_ADDED_SUCCESSFULLY";
 }
 
 

@@ -1,3 +1,5 @@
+
+/* Basic Reset */
 nav {
       background-color: #101010;
       padding: 10px 10px 10px 10px;
@@ -27,6 +29,7 @@ nav a {
 
 
 
+/* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
      div > nav {
         flex-direction: row;
@@ -37,7 +40,7 @@ nav a {
 
 
 
-
+/* Submenu styles */
 .submenu a {
   display: block;
   margin-left: 15px;
@@ -174,6 +177,10 @@ body {
 }
 }
 
+
+
+
+
   
 /*adjust the submenu sectionm width and height for laptop devices*/
   .submenu {
@@ -207,6 +214,9 @@ body {
     display: none;
   }
 }
+
+
+
 
 
 /* Carousel styles for mobile/tablet (up to 768px) */
@@ -259,6 +269,13 @@ body {
   }
 }
 
+
+
+
+
+
+
+
 /* Styles for devices wider than 768px - show all slides side by side, no carousel */
 @media (min-width: 769px) {
   .carousel-container {
@@ -306,6 +323,9 @@ body {
 }
 
 
+
+
+
 /*adjustment of paragraph of welcome to vssut satsang */
   /* Default for desktops and laptops */
 .intro[aria-label="About VSSUT Satsang"] {
@@ -325,6 +345,10 @@ body {
   margin: 0;
 }
 
+
+
+
+
 /* For extra-large desktops, you can go even wider if desired: */
 @media (min-width: 1600px) {
   .intro[aria-label="About VSSUT Satsang"] {
@@ -332,6 +356,11 @@ body {
     padding: 40px 80px;
   }
 }
+
+
+
+
+
 
 /* ========== Mobiles: up to 600px (small phones) ========== */
 @media (max-width: 600px) {
@@ -350,6 +379,10 @@ body {
 }
 
 
+
+
+
+
 /* ========== Normal Tablets: 601px to 900px ========== */
 @media (min-width: 601px) and (max-width: 900px) {
   .intro[aria-label="About VSSUT Satsang"] {
@@ -364,6 +397,9 @@ body {
 }
 
 
+
+
+
 /* ========== Slightly Bigger Tablets: 901px to 1024px ========== */
 @media (min-width: 901px) and (max-width: 1024px) {
   .intro[aria-label="About VSSUT Satsang"] {
@@ -376,6 +412,10 @@ body {
     line-height: 1.6;
   }
 }
+
+
+
+
 
 
 
@@ -410,6 +450,11 @@ body {
   margin-top: 30px;
 }
 
+
+
+
+
+
 /* =============================== */
 /* Intro Section Base Styles (All devices) */
 /* =============================== */
@@ -430,6 +475,9 @@ body {
   font-size: 2rem;
   line-height: 1.2;
 }
+
+
+
 
 
 /* =============================== */
@@ -466,6 +514,10 @@ body {
   }
 }
 
+
+
+
+
 /* Normal tablets - 601px to 900px */
 @media (min-width: 601px) and (max-width: 900px) {
   .quote-container {
@@ -493,6 +545,10 @@ body {
     padding-bottom: 7px;
   }
 }
+
+
+
+
 
 /* Larger tablets & small laptops - 901px to 1200px */
 @media (min-width: 901px) and (max-width: 1200px) {
@@ -522,6 +578,10 @@ body {
     padding-bottom: 8px;
   }
 }
+
+
+
+
 
 /* Laptops and desktops - 1201px and above */
 @media (min-width: 1201px) {
@@ -568,73 +628,6 @@ body {
     .hamburger-icon div:last-child {
       width: 15px;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -720,7 +713,7 @@ footer {
 
     footer .fa-whatsapp {
       margin-right: 8px;
-      color: #25D366;
+      color: hsl(154, 70%, 49%);
     }
 
      footer .fa-instagram {
@@ -735,3 +728,47 @@ footer {
       margin-right: 20px;
       color: white;
     }
+
+
+
+
+
+
+  /*responsiveness for the lyrics and emebed youtube vieos */
+ .bhajan-layout{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+}
+
+.lyrics-section{
+    width:25%;
+}
+
+.video-section{
+    width:75%;
+}
+
+.video-section iframe{
+    width:100%;
+    height:400px;
+    border-radius:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .bhajan-layout{
+        flex-direction:column;
+    }
+
+    .lyrics-section,
+    .video-section{
+        width:100%;
+    }
+
+    .video-section iframe{
+        height:250px;
+    }
+}

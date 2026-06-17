@@ -17,7 +17,10 @@ public class Lyrics {
 
     private String language;
 
-    // ✅ Getters and Setters
+    @Column(name = "youtube_link")
+    private String youtubeLink;
+
+    // ===== GETTERS & SETTERS =====
 
     public Long getId() {
         return id;
@@ -50,8 +53,15 @@ public class Lyrics {
     public void setLanguage(String language) {
         this.language = language;
     }
-}
 
+    public String getYoutubeLink() {
+        return youtubeLink;
+    }
+
+    public void setYoutubeLink(String youtubeLink) {
+        this.youtubeLink = youtubeLink;
+    }
+}
 
 
 

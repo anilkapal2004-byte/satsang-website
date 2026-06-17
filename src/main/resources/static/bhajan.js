@@ -86,11 +86,69 @@ document.addEventListener("DOMContentLoaded", () => {
           div.style.borderRadius = "14px";
           div.style.boxShadow = "0 0 20px rgba(214,162,94,0.2)";
 
-          div.innerHTML = `
-            <h2 style="color:#d6a25e;">${bhajan.title}</h2>
-            <p><b>Language:</b> ${bhajan.language}</p>
-            <pre style="white-space:pre-wrap; font-family:inherit;">${bhajan.lyrics}</pre>
-          `;
+
+
+
+          // Extract YouTube video ID if link is present(for showing youtube links in the right side)
+          let videoId = null;
+
+if (bhajan.youtubeLink) {
+
+    if (bhajan.youtubeLink.includes("v=")) {
+
+        videoId =
+        bhajan.youtubeLink.split("v=")[1].split("&")[0];
+
+    }
+
+    else if (bhajan.youtubeLink.includes("youtu.be/")) {
+
+        videoId =
+        bhajan.youtubeLink.split("youtu.be/")[1];
+
+    }
+}
+
+div.innerHTML = `
+
+<div class="bhajan-layout">
+
+  <!-- LEFT SIDE -->
+  <div class="lyrics-section">
+
+    <h2 style="color:#d6a25e;">
+      ${bhajan.title}
+    </h2>
+
+    <p><b>Language:</b> ${bhajan.language}</p>
+
+    <pre class="lyrics-text">
+${bhajan.lyrics}
+    </pre>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  ${
+    videoId
+    ? `
+      <div class="video-section">
+
+        <iframe
+          src="https://www.youtube.com/embed/${videoId}"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+    `
+    : ""
+  }
+
+</div>
+`;
+
+// Append the bhajan div to the container and scroll into view
 
           container.appendChild(div);
           div.scrollIntoView({ behavior: "smooth" });
