@@ -1,159 +1,367 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <title>Satsang Alumni</title>
-  <style>
-     body {
-    background-color: #1a1a1a;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-    .alumni-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
 
-.alumni-box {
-  background-color: #222;
-  border: 2px solid #555;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 20px auto;
-  color: white;
-  width: 90%;
-  max-width: 1000px;
-  height: auto; /* Let content decide height */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.alumni-box h3 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 2rem;
-  color: aqua;
-}
+  <meta name="description"
+    content="Meet the alumni of VSSUT Satsang from different engineering branches and graduating batches.">
 
-.alumni-box p {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 1.2rem;
-}
+  <title>
 
-/* Tablet view */
-@media (max-width: 1024px) {
-  .alumni-box {
-    padding: 15px;
-    width: 90%;
-  }
-  .alumni-box h3 {
-    font-size: 41px;
-  }
-  .alumni-box p {
-    font-size: 30px;
-  }
-}
+    Satsang Alumni | VSSUT Satsang
 
-/* Mobile view */
-@media (max-width: 600px) {
-  .alumni-container {
-    padding: 10px;
-    gap: 15px;
-  }
-  .alumni-box {
-    padding: 15px;
-    width: 100%;
-  }
-  .alumni-box h3 {
-    font-size: 40px;
-  }
-  .alumni-box p {
-    font-size: 30px;
-  }
-}
+  </title>
 
-  </style>
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Shared CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<div style="text-align: right; margin-bottom: 20px;">
-  <input type="text" id="searchInput" placeholder="Search Alumni name"
-         style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 420px; height:35px ;font-size: 30px; text-align: center;">
-</div>
 
+  <!-- ===========================================
+                NAVIGATION
+=========================================== -->
 
-  <h1 style="text-align: center;color: burlywood; font-size: 59px; margin-top: 60px;">Satsang Alumni</h1>
-  <div class="alumni-container">
-    <div class="alumni-box">
-      <h3>Kapilendra Prusty</h3>
-      <p><strong>Phone:</strong> 8917243944</p>
-      <p><strong>Branch:</strong>MME </p>
-      <p><strong>Passing Year:</strong> 2020</p>
-      <p><strong>Address:</strong>Rourkela </p>
-      <p><strong>Designation:</strong> NA</p>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="middle_logo.jpg" alt="VSSUT Satsang Logo" loading="lazy">
+        <span>VSSUT Satsang</span>
+      </a>
+      <button class="menu-btn" onclick="toggleMenu('satsangMenu')" aria-label="Open navigation">
+        <div class="hamburger-icon">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </button>
     </div>
+  </nav>
 
-    <!-- Add more alumni boxes below -->
-    <div class="alumni-box">
-      <h3>SUBHAM KUMAR PATRA</h3>
-      <p><strong>Phone:</strong>8144674339 </p>
-      <p><strong>Branch:</strong>EE</p>
-      <p><strong>Passing Year:</strong> 2022</p>
-      <p><strong>Address:</strong>PANCHAPADA, HALADIPADA, BALASORE, ODISHA, 756027 </p>
-      <p><strong>Designation:</strong>ASSISTANT MANAGER AT AMNS INDIA LTD. </p>
+  <div class="submenu" id="satsangMenu">
+    <div class="close-menu" onclick="closeMenu()">
+      ✕
     </div>
-    <div class="alumni-box">
-      <h3>Pradipta Sundar Rath</h3>
-      <p><strong>Phone:</strong> 8249687964</p>
-      <p><strong>Branch:</strong>ME </p>
-      <p><strong>Passing Year:</strong> 2021</p>
-      <p><strong>Address:</strong>Tankol , khordha, odisha pincode -752021 </p>
-      <p><strong>Designation:</strong>Mtech in IIT guwahati</p>
-    </div>
-    <div class="alumni-box">
-      <h3>DWEAIPAYAN DALAI</h3>
-      <p><strong>Phone:</strong>9583725482</p>
-      <p><strong>Branch:</strong>CE </p>
-      <p><strong>Passing Year:</strong> 2022</p>
-      <p><strong>Address:</strong>Bhubaneswar</p>
-      <p><strong>Designation:</strong>Software engineer </p>
-    </div>
-    <div class="alumni-box">
-      <h3>RAJESH KUMAR BEHERA</h3>
-      <p><strong>Phone:</strong> 7683947467</p>
-      <p><strong>Branch:</strong>CE </p>
-      <p><strong>Passing Year:</strong> 2021</p>
-      <p><strong>Address:</strong>At/Po- sadha, Dist-keonjhar </p>
-      <p><strong>Designation:</strong>Public Works department junior engineer, Government of odisha </p>
-    </div>
-    <div class="alumni-box">
-      <h3>B Priyajogi</h3>
-      <p><strong>Phone:</strong>7855919667</p>
-      <p><strong>Branch:</strong>CE</p>
-      <p><strong>Passing Year:</strong> 2024</p>
-      <p><strong>Address:</strong>Chatrapur, Ganjam, Odisha (761020) </p>
-      <p><strong>Designation:</strong>MBA student</p>
-    </div>
-
+    <a href="index.html"><i class="fas fa-house"></i> Home</a>
+    <a href="about.html"><i class="fas fa-circle-info"></i> About</a>
+    <a href="prayer.html"><i class="fas fa-hands-praying"></i> Prayer</a>
+    <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+    <a href="alumni.html"><i class="fas fa-user-group"></i> Alumni</a>
+    <a href="oblation.html"><i class="fas fa-hand-holding-heart"></i> Oblation</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
   </div>
 
-  <script>
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('keyup', function () {
-    const filter = searchInput.value.toLowerCase();
-    const boxes = document.querySelectorAll('.alumni-box');
 
-    boxes.forEach(box => {
-      const name = box.textContent.toLowerCase();
-      box.style.display = name.includes(filter) ? 'block' : 'none';
+  <header class="page-header">
+
+    <h1>
+
+      Satsang Alumni
+
+    </h1>
+
+    <p>
+
+      Our alumni continue to carry forward
+      the values of service, devotion,
+      and excellence in different fields.
+
+    </p>
+
+  </header>
+
+
+  <main>
+
+    <section class="page-content">
+
+      <div class="search-box">
+
+        <input type="text" id="searchInput" placeholder="Search Alumni" aria-label="Search Alumni">
+
+      </div>
+
+
+      <div class="alumni-container">
+        <!-- ===========================================
+                    ALUMNI CARDS
+    =========================================== -->
+
+        <article class="alumni-box">
+
+          <h3>
+
+            Kapilendra Prusty
+
+          </h3>
+
+          <p><strong>Phone:</strong> 8917243944</p>
+
+          <p><strong>Branch:</strong> MME</p>
+
+          <p><strong>Passing Year:</strong> 2020</p>
+
+          <p><strong>Address:</strong> Rourkela</p>
+
+          <p><strong>Designation:</strong> NA</p>
+
+        </article>
+
+
+        <article class="alumni-box">
+
+          <h3>
+
+            SUBHAM KUMAR PATRA
+
+          </h3>
+
+          <p><strong>Phone:</strong> 8144674339</p>
+
+          <p><strong>Branch:</strong> EE</p>
+
+          <p><strong>Passing Year:</strong> 2022</p>
+
+          <p><strong>Address:</strong> PANCHAPADA, HALADIPADA, BALASORE, ODISHA, 756027</p>
+
+          <p><strong>Designation:</strong> ASSISTANT MANAGER AT AMNS INDIA LTD.</p>
+
+        </article>
+
+
+        <article class="alumni-box">
+
+          <h3>
+
+            Pradipta Sundar Rath
+
+          </h3>
+
+          <p><strong>Phone:</strong> 8249687964</p>
+
+          <p><strong>Branch:</strong> ME</p>
+
+          <p><strong>Passing Year:</strong> 2021</p>
+
+          <p><strong>Address:</strong> Tankol, Khordha, Odisha, PIN - 752021</p>
+
+          <p><strong>Designation:</strong> M.Tech in IIT Guwahati</p>
+
+        </article>
+        <article class="alumni-box">
+
+          <h3>
+
+            DWEAIPAYAN DALAI
+
+          </h3>
+
+          <p><strong>Phone:</strong> 9583725482</p>
+
+          <p><strong>Branch:</strong> CE</p>
+
+          <p><strong>Passing Year:</strong> 2022</p>
+
+          <p><strong>Address:</strong> Bhubaneswar</p>
+
+          <p><strong>Designation:</strong> Software Engineer</p>
+
+        </article>
+
+
+        <article class="alumni-box">
+
+          <h3>
+
+            RAJESH KUMAR BEHERA
+
+          </h3>
+
+          <p><strong>Phone:</strong> 7683947467</p>
+
+          <p><strong>Branch:</strong> CE</p>
+
+          <p><strong>Passing Year:</strong> 2021</p>
+
+          <p><strong>Address:</strong> At/Po- Sadha, Dist- Keonjhar</p>
+
+          <p><strong>Designation:</strong> Public Works Department Junior Engineer, Government of Odisha</p>
+
+        </article>
+
+
+        <article class="alumni-box">
+
+          <h3>
+
+            B Priyajogi
+
+          </h3>
+
+          <p><strong>Phone:</strong> 7855919667</p>
+
+          <p><strong>Branch:</strong> CE</p>
+
+          <p><strong>Passing Year:</strong> 2024</p>
+
+          <p><strong>Address:</strong> Chatrapur, Ganjam, Odisha (761020)</p>
+
+          <p><strong>Designation:</strong> MBA Student</p>
+
+        </article>
+
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+
+    /* ==========================================
+                SEARCH ALUMNI
+    ========================================== */
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    searchInput.addEventListener("keyup", function () {
+
+      const filter =
+        searchInput.value.toLowerCase();
+
+      const boxes =
+        document.querySelectorAll(".alumni-box");
+
+      boxes.forEach(box => {
+
+        const name =
+          box.textContent.toLowerCase();
+
+        box.style.display =
+          name.includes(filter)
+            ? "block"
+            : "none";
+
+      });
+
     });
+
+  </script>
+
+
+  <!-- ===========================================
+                    FOOTER
+=========================================== -->
+
+  <footer>
+    <div class="footer-container">
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <address>
+          Pulaha Hall of Residence<br>
+          Room No. C-703, 704<br>
+          VSSUT Burla, Dist- Sambalpur<br>
+          PIN: 768018, Odisha, India.
+        </address>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:satsangvssut@gmail.com">satsangvssut@gmail.com</a>
+        </p>
+        <p>
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer">
+            Join Our WhatsApp Community
+          </a>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="prayer.html">Prayer</a></p>
+        <p><a href="gallery.html">Gallery</a></p>
+        <p><a href="alumni.html">Alumni</a></p>
+        <p><a href="oblation.html">Oblation</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <a href="admin_login.html" class="admin-link">
+          Admin Login
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 VSSUT Satsang | All rights reserved
+    </div>
+  </footer>
+  <!-- MENU SCRIPT -->
+  
+
+
+<script>
+  function toggleMenu(id) {
+    const menu = document.getElementById(id || 'satsangMenu');
+    if (menu) {
+      menu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll', menu.classList.contains('active'));
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('satsangMenu');
+    if (menu) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('satsangMenu');
+    const buttons = document.querySelectorAll('.menu-btn');
+    let isBtnClick = false;
+    buttons.forEach(btn => {
+      if(btn.contains(e.target)) isBtnClick = true;
+    });
+    if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !isBtnClick) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
   });
 </script>
-
 
 </body>
 </html>

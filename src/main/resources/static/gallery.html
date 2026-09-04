@@ -4,8 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore photos and event memories of VSSUT Satsang annual celebrations, Gurubhai meets, and spiritual journeys.">
 
-<title>Satsang Gallery</title>
+<title>Satsang Gallery - VSSUT Satsang</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Common Styles -->
+<link rel="stylesheet" href="style.css">
 
 <style>
 
@@ -263,10 +269,39 @@ body{
 
 <body>
 
+<!-- SITE-WIDE NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="middle_logo.jpg" alt="VSSUT Satsang Logo" loading="lazy">
+      <span>VSSUT Satsang</span>
+    </a>
+    <button class="menu-btn" id="siteMenuBtn" onclick="toggleMenu('satsangMenu')" aria-label="Open navigation">
+      <div class="hamburger-icon">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </button>
+  </div>
+</nav>
+
+<div class="submenu" id="satsangMenu">
+  <div class="close-menu" onclick="closeMenu()">✕</div>
+  <a href="index.html"><i class="fas fa-house"></i> Home</a>
+  <a href="about.html"><i class="fas fa-circle-info"></i> About</a>
+  <a href="prayer.html"><i class="fas fa-hands-praying"></i> Prayer</a>
+  <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+  <a href="alumni.html"><i class="fas fa-user-group"></i> Alumni</a>
+  <a href="oblation.html"><i class="fas fa-hand-holding-heart"></i> Oblation</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+</div>
+
+<!-- GALLERY TOPBAR (for category browsing) -->
 <div class="topbar">
 
 <div class="menu-btn"
-onclick="openMenu()">
+onclick="openSidebar()">
 ☰
 </div>
 
@@ -282,7 +317,7 @@ Satsang Gallery
 id="sidebar">
 
 <div class="close-btn"
-onclick="closeMenu()">
+onclick="closeSidebar()">
 ✖
 </div>
 
@@ -518,13 +553,13 @@ id="counter">
 let photos = [];
 let currentIndex = 0;
 
-function openMenu(){
+function openSidebar(){
  document
  .getElementById("sidebar")
  .classList.add("active");
 }
 
-function closeMenu(){
+function closeSidebar(){
  document
  .getElementById("sidebar")
  .classList.remove("active");
@@ -564,6 +599,8 @@ async function loadGallery(eventType,eventYear){
  container.innerHTML += `
  <img
  src="${photo.imageUrl}"
+ alt="Satsang Gallery Image ${index + 1}"
+ loading="lazy"
  onclick="openViewer(${index})">
  `;
 
@@ -621,6 +658,98 @@ function closeViewer(){
  .style.display="none";
 }
 
+</script>
+
+  <footer>
+    <div class="footer-container">
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <address>
+          Pulaha Hall of Residence<br>
+          Room No. C-703, 704<br>
+          VSSUT Burla, Dist- Sambalpur<br>
+          PIN: 768018, Odisha, India.
+        </address>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:satsangvssut@gmail.com">satsangvssut@gmail.com</a>
+        </p>
+        <p>
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer">
+            Join Our WhatsApp Community
+          </a>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="prayer.html">Prayer</a></p>
+        <p><a href="gallery.html">Gallery</a></p>
+        <p><a href="alumni.html">Alumni</a></p>
+        <p><a href="oblation.html">Oblation</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <a href="admin_login.html" class="admin-link">
+          Admin Login
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 VSSUT Satsang | All rights reserved
+    </div>
+  </footer>
+
+
+
+
+
+<script>
+  function toggleMenu(id) {
+    const menu = document.getElementById(id || 'satsangMenu');
+    if (menu) {
+      menu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll', menu.classList.contains('active'));
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('satsangMenu');
+    if (menu) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('satsangMenu');
+    const buttons = document.querySelectorAll('.menu-btn');
+    let isBtnClick = false;
+    buttons.forEach(btn => {
+      if(btn.contains(e.target)) isBtnClick = true;
+    });
+    if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !isBtnClick) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
 </script>
 
 </body>

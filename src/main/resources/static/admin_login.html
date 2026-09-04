@@ -1,84 +1,149 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Admin Login - VSSUT Satsang</title>
-  <style>
-    body {
-      background:#0f0f0f;
-      color:white;
-      font-family: Arial, sans-serif;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-    }
-    .box {
-      background:#161616;
-      padding:30px;
-      border-radius:12px;
-      width:320px;
-      text-align:center;
-      box-shadow:0 0 20px rgba(214,162,94,0.3);
-    }
-    input, button {
-      width:100%;
-      padding:10px;
-      margin-top:12px;
-      border-radius:6px;
-      border:none;
-    }
-    button {
-      background:#d6a25e;
-      cursor:pointer;
-      font-weight:bold;
-    }
-    #msg { margin-top:12px; color:#ff8080; }
-  </style>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Admin login portal for managing VSSUT Satsang gallery photos and devotional content.">
+
+  <title>
+
+    Admin Login | VSSUT Satsang
+
+  </title>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Shared CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<div class="box">
-  <h2>Admin Login</h2>
+  <main class="login-page">
 
-  <input type="text" id="username" placeholder="Username">
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="adminLogin()">Login</button>
-  <p id="msg"></p>
-  
+    <section class="login-card">
 
-  <div id="msg"></div>
-</div>
+      <h1>
 
-<script>
-async function adminLogin() {
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const msg = document.getElementById("msg");
+        Admin Login
 
-  if (!username || !password) {
-    msg.innerText = "Fill all fields";
-    return;
-  }
+      </h1>
 
-  const response = await fetch(
-    `http://localhost:8080/admin/login?username=${username}&password=${password}`,
-    {
-      method: "GET",
-      credentials: "include"   // 🔥 REQUIRED
+      <p>
+
+        Sign in to manage gallery photos,
+        bhajans, and website content.
+
+      </p>
+
+      <input type="text" id="username" placeholder="Username" aria-label="Username" autocomplete="username">
+
+
+      <input type="password" id="password" placeholder="Password" aria-label="Password" autocomplete="current-password">
+
+
+      <button class="btn-primary" onclick="adminLogin()">
+
+        Login
+
+      </button>
+
+      <div id="msg"></div>
+
+    </section>
+
+  </main>
+  <script>
+
+    async function adminLogin() {
+
+      const username =
+        document
+          .getElementById("username")
+          .value
+          .trim();
+
+      const password =
+        document
+          .getElementById("password")
+          .value
+          .trim();
+
+      const msg =
+        document.getElementById("msg");
+
+
+      if (!username || !password) {
+
+        msg.innerText = "Fill all fields";
+
+        return;
+
+      }
+
+
+      try {
+
+        const response =
+          await fetch(
+            `http://localhost:8080/admin/login`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ username, password }),
+              credentials: "include"
+            }
+          );
+
+
+        const result =
+          await response.text();
+
+
+        if (result === "LOGIN_SUCCESS") {
+
+          window.location.href =
+            "admin_dashboard.html";
+
+        }
+
+        else {
+
+          msg.innerText = result;
+
+        }
+
+      }
+
+      catch (error) {
+
+        msg.innerText =
+          "Unable to connect to the server.";
+
+      }
+
     }
-  );
 
-  const result = await response.text();
-
-  if (result === "LOGIN_SUCCESS") {
-    window.location.href = "admin_dashboard.html";
-  } else {
-    msg.innerText = result;
-  }
-}
-</script>
-
+  </script>
 
 </body>
+
 </html>

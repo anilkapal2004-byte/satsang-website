@@ -1,138 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Oblation - VSSUT Satsang</title>
+    <meta charset="UTF-8">
 
-<style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body{
-    background-color:#1a1a1a;
-    color:#fcebd5;
-    font-family:'Georgia', serif;
-    margin:0;
-    padding:20px;
-    text-align:center;
-}
+    <meta name="description"
+        content="Contribute oblation (Arghya) for VSSUT Satsang activities through our official QR code.">
 
-h1{
-    color:orange;
-    margin-bottom:40px;
-    font-size:40px;
-}
+    <title>
 
-h2{
-    color:yellowgreen;
-    margin-bottom:20px;
-    font-size:28px;
-}
+        Oblation | VSSUT Satsang
 
-.offering-section{
-    max-width:700px;
-    margin:auto;
-    text-align:center;
-}
+    </title>
 
-.qr-box{
-    display:inline-block;
-    border:2px solid white;
-    border-radius:20px;
-    padding:2px;
-    background-color:#111;
-}
+    <!-- Google Fonts -->
 
-.qr-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-.qr-img{
-    width:300px;
-    max-width:100%;
-    height:auto;
-    display:block;
-}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.note{
-    font-size:24px;
-    color:yellow;
-    text-align:center;
-    margin-top:20px;
-    line-height:1.6;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-/* Mobile Design */
-@media screen and (max-width:768px){
+    <!-- Font Awesome -->
 
-    body{
-        padding:10px;
-    }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    h1{
-        font-size:32px;
-        margin-bottom:25px;
-    }
+    <!-- Common Styles -->
 
-    h2{
-        font-size:24px;
-    }
+    <link rel="stylesheet" href="style.css">
 
-    .offering-section{
-        width:100%;
-    }
-
-    .qr-box{
-        width:90%;
-        padding:1px;
-        box-sizing:border-box;
-    }
-
-    .qr-img{
-        width:100%;
-        max-width:350px;
-        margin:auto;
-    }
-
-    .note{
-        font-size:18px;
-        line-height:1.6;
-        padding:0 10px;
-    }
-}
-
-</style>
 </head>
 
 <body>
 
-<h1>Oblation</h1>
+    <!-- ==========================
+        NAVIGATION
+========================== -->
 
-<div class="offering-section">
+    <nav>
 
-    <h2>Offerings</h2>
+        <div class="nav-container">
 
-    <div class="qr-box">
+            <a href="index.html" class="logo">
 
-        <div class="qr-container">
+                <img src="middle_logo.jpg" alt="VSSUT Satsang Logo" loading="lazy">
 
-            <img
-                class="qr-img"
-                src="qr code of vssut satsang for the financial year 2025-2026 updated.png"
-                alt="QR Code for Satsang Offerings">
+                <span>VSSUT Satsang</span>
+
+            </a>
+
+            <button class="menu-btn" onclick="toggleMenu('satsangMenu')" aria-label="Open navigation">
+
+                <div class="hamburger-icon">
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+
+                </div>
+
+            </button>
 
         </div>
 
+    </nav>
+
+    <!-- Mobile Menu -->
+
+    <div class="submenu" id="satsangMenu">
+
+        <div class="close-menu" onclick="closeMenu()">
+
+            ✕
+
+        </div>
+
+        <a href="index.html"><i class="fas fa-house"></i> Home</a>
+
+        <a href="prayer.html"><i class="fas fa-hands-praying"></i> Prayer</a>
+
+        <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+
+        <a href="alumni.html"><i class="fas fa-user-group"></i> Alumni</a>
+
+        <a href="oblation.html"><i class="fas fa-hand-holding-heart"></i> Oblation</a>
+
+        <a href="about.html"><i class="fas fa-circle-info"></i> About</a>
+
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+
     </div>
 
-    <p class="note">
-        Scan the QR to contribute to<br>
-        VSSUT Satsang
-    </p>
+    <header class="page-header">
 
-</div>
+        <h1>
+
+            Oblation
+
+        </h1>
+
+        <p>
+
+            Support VSSUT Satsang through your offering.
+
+        </p>
+
+    </header>
+
+    <main>
+
+        <section class="page-content">
+
+            <h2 class="section-title">
+
+                Offerings
+
+            </h2>
+
+        <!-- =====================================================
+     OBLATION CONTENT
+====================================================== -->
+
+        <div class="oblation-grid">
+
+            <div class="oblation-card">
+
+                <img src="qr_code_vssut_satsang_2025_2026.png" alt="QR Code for VSSUT Satsang Oblation" class="qr-image"
+                    loading="lazy">
+
+                <h3>
+
+                    Scan & Contribute
+
+                </h3>
+
+                <p class="oblation-note">
+
+                    Scan the QR code using any UPI application to
+                    contribute towards the activities and spiritual
+                    programs of <strong>VSSUT Satsang</strong>.
+
+                </p>
+
+            </div>
+
+            <div class="thank-you-card">
+
+                <i class="fas fa-hand-holding-heart thank-you-icon"></i>
+
+                <h2>
+
+                    Thank You
+
+                </h2>
+
+                <p>
+
+                    Every contribution, regardless of its amount,
+                    helps us organize weekly satsangs, annual satsangs,
+                    devotional programs, and other spiritual activities
+                    for the VSSUT community.
+
+                </p>
+
+                <p>
+
+                    Your kindness and generosity are sincerely appreciated.
+
+                </p>
+
+                <blockquote>
+
+                    "Service offered with devotion becomes worship."
+
+                </blockquote>
+
+            </div>
+
+        </div>
+        </section>
+        <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Contact -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <address>
+                    Pulaha Hall of Residence<br>
+                    Room No. C-703, 704<br>
+                    VSSUT Burla, Dist- Sambalpur<br>
+                    PIN: 768018, Odisha, India.
+                </address>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:satsangvssut@gmail.com">satsangvssut@gmail.com</a>
+                </p>
+                <p>
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer">
+                        Join Our WhatsApp Community
+                    </a>
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="about.html">About</a></p>
+                <p><a href="prayer.html">Prayer</a></p>
+                <p><a href="gallery.html">Gallery</a></p>
+                <p><a href="alumni.html">Alumni</a></p>
+                <p><a href="oblation.html">Oblation</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <a href="admin_login.html" class="admin-link">
+                    Admin Login
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 VSSUT Satsang | All rights reserved
+        </div>
+    </footer>
+
+
+    <!-- =====================================================
+     MENU SCRIPT
+====================================================== -->
+
+    
+
+
+<script>
+  function toggleMenu(id) {
+    const menu = document.getElementById(id || 'satsangMenu');
+    if (menu) {
+      menu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll', menu.classList.contains('active'));
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('satsangMenu');
+    if (menu) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('satsangMenu');
+    const buttons = document.querySelectorAll('.menu-btn');
+    let isBtnClick = false;
+    buttons.forEach(btn => {
+      if(btn.contains(e.target)) isBtnClick = true;
+    });
+    if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !isBtnClick) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
+</script>
 
 </body>
+
 </html>

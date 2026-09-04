@@ -1,5 +1,12 @@
 console.log("bhajan.js loaded");
 
+// Set this to your deployed backend's URL before going live.
+// Locally it falls back to localhost:8080 automatically.
+const API_BASE_URL =
+  window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8080"
+    : "https://YOUR-PRODUCTION-BACKEND-URL"; // <-- replace with real backend URL when deploying
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const searchBar = document.getElementById("searchBar");
@@ -44,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function doSearch() {
 
-    fetch("/lyrics/all")
+    fetch(`${API_BASE_URL}/lyrics/all`)
       .then(res => res.json())
       .then(allBhajans => {
 

@@ -1,148 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About VSSUT Satsang</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #0d0d0d;
-      color: #fcebd5;
-      padding: 20px;
-    }
 
-            .centerImage{
-                    display:block ;
-                    margin-left: auto;
-                    margin-right: auto;
- 
-    }
+  <meta name="description" content="Learn about the history, mission and spiritual journey of VSSUT Satsang, Burla.">
 
-    header {
-      background-color: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-      font-size: 27px;
-      font-weight: bold;
-      color: #fcebd5;
-      border-bottom: 2px solid #fcebd5;
-    }
+  <title>
 
-    .content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.8;
-    }
+    About | VSSUT Satsang
 
-    h2 {
-      color: #ffd700;
-      margin-top: 30px;
-    }
+  </title>
 
-    p {
-      font-size: 18px;
-    }
+  <!-- Google Font -->
 
-    @media screen and (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-      header {
-        font-size: 23px;
-        padding: 15px;
-      }
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      .content {
-        padding: 10px;
-        text-align: justify;
-      }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-      p {
-        font-size: 18px;
-      }
-    }
-  </style>
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Main CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-  <header>
-    About VSSUT Satsang
-  </header>
 
+  <!-- ==========================
+        NAVIGATION
+=========================== -->
 
-  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
-  <img src="middle logo.jpg" alt="VSSUT Satsang"
-       style="border: 2px solid white; border-radius: 20px;"
-       width="265" height="265" />
-  <p style="margin-top: 10px; font-weight: bold;">VSSUT Satsang</p>
-</div>
+  <nav>
 
- <div class="content">
-    <p><strong>VSSUT Satsang</strong> , the spiritual heartbeat of Veer Surendra Sai University of Technology (VSSUT), was founded in the year  <strong>2017</strong> by the students of the <strong>2017 batch</strong>. Since its inception, the satsang has been a spiritual anchor for students, fostering values, devotion, and community bonding. What began as a humble initiative has now grown into a vibrant community of seekers and followers who walk the path of love, devotion, and truth inspired by <strong>Sri Sri Thakur Anukulchandra  </strong> .</p>
+    <div class="nav-container">
 
-    <p>The heart of our satsang is located in <strong>Pulaha Hall of Residence</strong>, Room No. <strong>A-115</strong>. This room serves as the <strong>prayer room</strong> where students gather daily for both <strong>morning and evening prayers</strong>, creating a serene and divine atmosphere within the campus.</p>
-    
+      <div class="logo">
 
-    <h2>Daily Rituals</h2>
-    <p>Each day, in our sacred prayer room, we continue to offer bhoga to the deity during the morning prayers, symbolizing our gratitude and devotion. The spirit of Satsang at VSSUT is not just about rituals — it is a way of life. It nurtures compassion, community, and a higher purpose among the students.
+        <img src="middle_logo.jpg" alt="VSSUT Satsang Logo" loading="lazy">
 
-    <h2>Weekly Satsang</h2>
-    <p> Every Wednesday, the satsang family gathers for a weekly satsang, where the essence of our spiritual journey is strengthened. These gatherings begin with Guru Bandana, followed by deep discussions on Sri Sri Thakur’s ideology and teachings, inspiring everyone to embody those values in daily life. The sessions are enriched with soulful bhajans, choruses, and kirtans, creating a divine atmosphere. The evening concludes with Prasad Sevan, fostering a sense of unity and shared devotion.</p>
-   
-    <h2>Annual Satsang</h2>
-    <p> A major spiritual highlight each year is the Annual Satsang, hosted in the university’s E-Learning Center. This grand event welcomes students, professors, and dignitaries including the Hon’ble Vice Chancellor. The program features a chief speaker who shares enlightening thoughts on Thakur's life and philosophy, followed by a musical segment that brings calm and joy to the gathering. The satsang concludes with Prasad Sevan for all attendees — a tradition that binds everyone in collective grace.</p>
-    
-    <h2>Albums & Deoghar Trip</h2>
-    <p> Following the Annual Satsang, a special album is created capturing the memories, moments, and bliss of the event. As a continuation of this spiritual journey, a pilgrimage to Deoghar is organized with Satsang alumni — a deeply cherished tradition.
+        <span>
 
-Deoghar, located in Jharkhand, holds a special place in our hearts. It is where the holy family of Sri Sri Thakur Anukulchandra resides. During the trip, we offer our heartfelt respects, seek blessings from Acharyadev, and present the Annual Satsang album. In return, we receive valuable guidance for organizing the next year’s satsang with more devotion and discipline.</p>
+          VSSUT Satsang
+
+        </span>
+
+      </div>
+
+      <button class="menu-btn" onclick="toggleMenu('satsangMenu')" aria-label="Open navigation">
+
+        <div class="hamburger-icon">
+
+          <div></div>
+
+          <div></div>
+
+          <div></div>
+
+        </div>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+  <!-- Mobile Menu -->
+
+  <div class="submenu" id="satsangMenu">
+
+    <div class="close-menu" onclick="closeMenu()">
+
+      ✕
+
+    </div>
+
+    <a href="index.html">
+
+      <i class="fas fa-house"></i>
+
+      Home
+
+    </a>
+
+    <a href="prayer.html">
+
+      <i class="fas fa-hands-praying"></i>
+
+      Prayer
+
+    </a>
+
+    <a href="gallery.html">
+
+      <i class="fas fa-images"></i>
+
+      Gallery
+
+    </a>
+
+    <a href="alumni.html">
+
+      <i class="fas fa-user-group"></i>
+
+      Alumni
+
+    </a>
+
+    <a href="oblation.html">
+
+      <i class="fas fa-hand-holding-heart"></i>
+
+      Oblation
+
+    </a>
+
+    <a href="about.html">
+
+      <i class="fas fa-circle-info"></i>
+
+      About
+
+    </a>
+
+    <a href="contact.html">
+
+      <i class="fas fa-envelope"></i>
+
+      Contact
+
+    </a>
 
   </div>
+
+
+  <!-- ==========================
+        PAGE HEADER
+=========================== -->
+
+  <header class="page-header">
+
+    <h1>
+
+      About VSSUT Satsang
+
+    </h1>
+
+  </header>
+
+  <main>
+
+    <section class="page-content">
+
+      <div class="text-center">
+
+        <img src="middle_logo.jpg" alt="VSSUT Satsang Logo" class="page-logo" loading="lazy">
+
+        <h2>
+
+          VSSUT Satsang
+
+        </h2>
+
+      </div>
+      <!-- =====================================================
+     ABOUT CONTENT
+====================================================== -->
+
+      <h2>Our History</h2>
+
+      <p>
+
+        <strong>VSSUT Satsang</strong> is the spiritual heartbeat of
+        Veer Surendra Sai University of Technology (VSSUT), Burla.
+
+        It was founded in the year <strong>2017</strong> by students
+        of the <strong>2017 batch</strong> with the aim of creating a
+        spiritual atmosphere on the university campus.
+
+      </p>
+
+      <p>
+
+        What began as a humble initiative has gradually grown into a
+        vibrant family of students, alumni and devotees who continue
+        to walk the path shown by
+        <strong>Sree Sree Thakur Anukulchandra.</strong>
+
+      </p>
+
+
+      <!-- ===================================================== -->
+
+      <h2>Prayer Room</h2>
+
+      <p>
+
+        The heart of our satsang is located in
+        <strong>Pulaha Hall of Residence</strong>,
+        Room <strong>A-115</strong>.
+
+      </p>
+
+      <p>
+
+        Every morning and evening, students gather in this prayer room
+        for collective prayer, devotional songs and spiritual
+        discussions, creating an atmosphere of peace, unity and
+        devotion throughout the campus.
+
+      </p>
+
+
+      <!-- ===================================================== -->
+
+      <h2>Daily Rituals</h2>
+
+      <p>
+
+        Every day bhoga is offered during the morning prayer as an
+        expression of gratitude and devotion.
+
+      </p>
+
+      <p>
+
+        Our daily routine is not merely a ritual but a discipline that
+        helps students develop compassion, responsibility, self-control
+        and devotion while balancing academic life.
+
+      </p>
+
+
+      <!-- ===================================================== -->
+
+      <h2>Weekly Satsang</h2>
+
+      <p>
+
+        Every Wednesday the entire satsang family gathers together for
+        the weekly satsang.
+
+      </p>
+
+      <p>
+
+        The program begins with Guru Bandana, followed by discussions
+        on the teachings and ideals of Sree Sree Thakur
+        Anukulchandra.
+
+      </p>
+
+      <p>
+
+        Devotional bhajans, chorus singing and kirtans create a joyful
+        spiritual atmosphere before everyone concludes the gathering by
+        accepting Prasad Sevan together.
+
+      </p>
+
+
+      <!-- ===================================================== -->
+
+      <h2>Annual Satsang</h2>
+
+      <p>
+
+        One of the largest spiritual events organised every year is the
+        Annual Satsang conducted at the university's E-Learning Centre.
+
+      </p>
+
+      <p>
+
+        Students, professors, alumni and distinguished guests,
+        including the Honourable Vice-Chancellor, participate in this
+        celebration.
+
+      </p>
+
+      <p>
+
+        The event consists of devotional music, inspiring speeches,
+        spiritual discussions and concludes with Prasad Sevan for all
+        participants.
+
+      </p>
+
+
+      <!-- ===================================================== -->
+
+      <h2>Albums &amp; Deoghar Pilgrimage</h2>
+
+      <p>
+
+        Every Annual Satsang is preserved through a commemorative
+        photo album containing memorable moments from the celebration.
+
+      </p>
+
+      <p>
+
+        After the programme, members of VSSUT Satsang along with alumni
+        undertake a pilgrimage to <strong>Deoghar</strong>, one of the
+        holiest places associated with Sree Sree Thakur
+        Anukulchandra.
+
+      </p>
+
+      <p>
+
+        During this pilgrimage, devotees offer their respects, receive
+        blessings and guidance, and present the Annual Satsang album.
+        The guidance received inspires everyone to organise future
+        satsangs with greater dedication, discipline and devotion.
+
+      </p>
+
+    </section>
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <address>
+          Pulaha Hall of Residence<br>
+          Room No. C-703, 704<br>
+          VSSUT Burla, Dist- Sambalpur<br>
+          PIN: 768018, Odisha, India.
+        </address>
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:satsangvssut@gmail.com">satsangvssut@gmail.com</a>
+        </p>
+        <p>
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer">
+            Join Our WhatsApp Community
+          </a>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="prayer.html">Prayer</a></p>
+        <p><a href="gallery.html">Gallery</a></p>
+        <p><a href="alumni.html">Alumni</a></p>
+        <p><a href="oblation.html">Oblation</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        <a href="admin_login.html" class="admin-link">
+          Admin Login
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 VSSUT Satsang | All rights reserved
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+     MENU SCRIPT
+====================================================== -->
+
+  
+
+
+<script>
+  function toggleMenu(id) {
+    const menu = document.getElementById(id || 'satsangMenu');
+    if (menu) {
+      menu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll', menu.classList.contains('active'));
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('satsangMenu');
+    if (menu) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('satsangMenu');
+    const buttons = document.querySelectorAll('.menu-btn');
+    let isBtnClick = false;
+    buttons.forEach(btn => {
+      if(btn.contains(e.target)) isBtnClick = true;
+    });
+    if (menu && menu.classList.contains('active') && !menu.contains(e.target) && !isBtnClick) {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
+</script>
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

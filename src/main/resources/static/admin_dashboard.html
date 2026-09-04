@@ -1,308 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Admin dashboard for uploading bhajan lyrics and managing VSSUT Satsang gallery photos.">
+  <title>Admin Dashboard | VSSUT Satsang</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+  
   <style>
-
-    body{
-      background:#0f0f0f;
-      color:white;
-      font-family:Arial,sans-serif;
-      padding:30px;
+    /* Admin Dashboard Specific Styles */
+    .dashboard-container {
+      width: min(900px, 95%);
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
-
-    .box{
-      max-width:700px;
-      margin:auto;
-      background:#161616;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 0 20px rgba(214,162,94,0.3);
+    
+    .admin-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
     }
-
-    input,
-    textarea,
-    button{
-
-      width:100%;
-      padding:12px;
-      margin-top:14px;
-      border:none;
-      border-radius:8px;
-      font-size:16px;
+    
+    .admin-card h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: var(--gold);
     }
-
-    textarea{
-      resize:vertical;
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
     }
-
-    button{
-      background:#d6a25e;
-      color:black;
-      font-weight:bold;
-      cursor:pointer;
+    
+    .form-group label {
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text);
     }
-
-    button:hover{
-      opacity:0.9;
+    
+    .form-control {
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 12px 15px;
+      font-size: 1rem;
+      transition: var(--transition);
+      width: 100%;
     }
-
-    #msg{
-      margin-top:20px;
-      text-align:center;
-      font-weight:bold;
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 5px rgba(214, 162, 94, 0.3);
     }
-
+    
+    .form-control::placeholder {
+      color: #777;
+    }
+    
+    input[type="file"].form-control {
+      padding: 9px 15px;
+      background: #151515;
+    }
+    
+    input[type="file"]::file-selector-button {
+      background: #333;
+      border: none;
+      border-radius: 5px;
+      color: var(--text);
+      padding: 6px 12px;
+      margin-right: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    input[type="file"]::file-selector-button:hover {
+      background: #444;
+    }
+    
+    .btn-full {
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .logout-btn-container {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 60px;
+    }
+    
+    .alert {
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 500;
+      display: none; /* Hidden by default */
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .admin-card {
+        padding: 20px;
+      }
+    }
   </style>
-
 </head>
-
 <body>
 
-<div class="box">
+  <!-- Header -->
+  <header style="text-align: center; padding: 30px 0 10px 0;">
+    <h1>Admin Dashboard</h1>
+  </header>
 
-  <h2>Upload Bhajan</h2>
+  <main class="dashboard-container">
 
-  <input
-    id="title"
-    placeholder="Bhajan Title">
+    <!-- Upload Bhajan Card -->
+    <section class="admin-card">
+      <h2><i class="fas fa-music"></i> Upload Bhajan</h2>
+      
+      <div class="form-group">
+        <label for="title">Bhajan Title</label>
+        <input type="text" id="title" class="form-control" placeholder="e.g. Radhe Radhe">
+      </div>
+      
+      <div class="form-group">
+        <label for="language">Language</label>
+        <input type="text" id="language" class="form-control" placeholder="e.g. Hindi">
+      </div>
+      
+      <div class="form-group">
+        <label for="youtubeLink">YouTube Link (Optional)</label>
+        <input type="text" id="youtubeLink" class="form-control" placeholder="https://youtube.com/...">
+      </div>
+      
+      <div class="form-group">
+        <label for="lyrics">Bhajan Lyrics</label>
+        <textarea id="lyrics" rows="8" class="form-control" placeholder="Enter lyrics here..."></textarea>
+      </div>
+      
+      <button class="btn btn-full" onclick="uploadBhajan()">Upload Bhajan</button>
+      <div id="msg" class="alert"></div>
+    </section>
 
-  <textarea
-    id="lyrics"
-    rows="10"
-    placeholder="Bhajan Lyrics">
-  </textarea>
+    <!-- Upload Gallery Photos Card -->
+    <section class="admin-card">
+      <h2><i class="fas fa-images"></i> Upload Gallery Photos</h2>
+      
+      <div class="form-group">
+        <label for="eventType">Event Type</label>
+        <select id="eventType" class="form-control">
+          <option>Annual Satsang</option>
+          <option>Deogarh Trip</option>
+          <option>Weekly Satsang</option>
+          <option>Alumni Meet</option>
+          <option>Special Events</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="eventYear">Event Year</label>
+        <select id="eventYear" class="form-control">
+          <option>2023</option>
+          <option>2024</option>
+          <option>2025</option>
+          <option>2026</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="galleryImages">Select Images</label>
+        <input type="file" id="galleryImages" class="form-control" multiple accept="image/*">
+      </div>
+      
+      <button class="btn btn-full" onclick="uploadGallery()">Upload Photos</button>
+      <div id="galleryMsg" class="alert"></div>
+    </section>
+    
+    <div class="logout-btn-container">
+      <button class="btn" style="background: #333; color: white;" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
 
-  <input
-    id="language"
-    placeholder="Language">
+  </main>
 
-  <input
-    id="youtubeLink"
-    placeholder="YouTube Link">
-
-  <button onclick="uploadBhajan()">
-    Upload Bhajan
-  </button>
-
-
-  <hr>
-
-<h2>Upload Gallery Photos</h2>
-
-<select id="eventType">
-  <option>Annual Satsang</option>
-  <option>Deogarh Trip</option>
-  <option>Weekly Satsang</option>
-  <option>Alumni Meet</option>
-  <option>Special Events</option>
-</select>
-
-<select id="eventYear">
-  <option>2023</option>
-  <option>2024</option>
-  <option>2025</option>
-  <option>2026</option>
-</select>
-
-<input
-  type="file"
-  id="galleryImages"
-  multiple>
-
-<button onclick="uploadGallery()">
-  Upload Photos
-</button>
-
-<p id="galleryMsg"></p>
-
-  <button onclick="logout()">
-    Logout
-  </button>
-
-  <p id="msg"></p>
-
-</div>
-
-<script>
-
-
-
-
-
-// Placeholder function for gallery upload
-async function uploadGallery() {
-
-  const eventType =
-  document.getElementById("eventType").value;
-
-  const eventYear =
-  document.getElementById("eventYear").value;
-
-  const files =
-  document.getElementById("galleryImages").files;
-
-  const msg =
-  document.getElementById("galleryMsg");
-
-  if (files.length === 0) {
-
-    msg.innerText =
-    "Please select images";
-
-    msg.style.color = "orange";
-
-    return;
-  }
-
-  const formData =
-  new FormData();
-
-  formData.append(
-    "eventType",
-    eventType
-  );
-
-  formData.append(
-    "eventYear",
-    eventYear
-  );
-
-  for (let i = 0; i < files.length; i++) {
-
-    formData.append(
-      "files",
-      files[i]
-    );
-  }
-
-  try {
-
-    const response =
-    await fetch(
-      "http://localhost:8080/gallery/upload",
-      {
-        method: "POST",
-        body: formData
+  <script>
+    // Helper function to show messages clearly
+    function showMessage(elementId, text, isError) {
+      const el = document.getElementById(elementId);
+      el.style.display = "block";
+      el.innerText = text;
+      
+      if (isError) {
+        el.style.backgroundColor = "rgba(220, 53, 69, 0.15)";
+        el.style.color = "#ff6b6b";
+        el.style.border = "1px solid rgba(220, 53, 69, 0.3)";
+      } else {
+        el.style.backgroundColor = "rgba(40, 167, 69, 0.15)";
+        el.style.color = "#69db7c";
+        el.style.border = "1px solid rgba(40, 167, 69, 0.3)";
       }
-    );
-
-    const result =
-    await response.text();
-
-    msg.innerText = result;
-    msg.style.color = "lightgreen";
-
-  }
-
-  catch(error) {
-
-    msg.innerText =
-    "Upload failed";
-
-    msg.style.color = "red";
-  }
-}
-
-// Function to upload bhajan details
-
-async function uploadBhajan(){
-
-  const title =
-  document.getElementById("title").value.trim();
-
-  const lyrics =
-  document.getElementById("lyrics").value.trim();
-
-  const language =
-  document.getElementById("language").value.trim();
-
-  const youtubeLink =
-  document.getElementById("youtubeLink").value.trim();
-
-  const msg =
-  document.getElementById("msg");
-
-  if(!title || !lyrics || !language){
-
-    msg.innerText =
-    "⚠️ Please fill all required fields";
-
-    msg.style.color = "orange";
-
-    return;
-  }
-
-  // Send data to server
-
-  try{
-
-    const response = await fetch(
-      "http://localhost:8080/admin/addBhajan",
-      {
-
-        method:"POST",
-
-        headers:{
-          "Content-Type":"application/json"
-        },
-
-        credentials:"include",
-
-        body:JSON.stringify({
-          title,
-          lyrics,
-          language,
-          youtubeLink
-        })
-      }
-    );
-
-    // Handle server response
-
-    const result = await response.text();
-
-    msg.innerText = result;
-
-    msg.style.color =
-    result.includes("SUCCESS")
-    ? "lightgreen"
-    : "red";
-
-    // Clear form if upload was successful
-
-    if(result.includes("SUCCESS")){
-
-      document.getElementById("title").value = "";
-
-      document.getElementById("lyrics").value = "";
-
-      document.getElementById("language").value = "";
-
-      document.getElementById("youtubeLink").value = "";
     }
 
-  }
+    // ==========================================
+    // Gallery Upload
+    // ==========================================
+    async function uploadGallery() {
+      const eventType = document.getElementById("eventType").value;
+      const eventYear = document.getElementById("eventYear").value;
+      const files = document.getElementById("galleryImages").files;
 
-  // Handle network errors
+      if (files.length === 0) {
+        showMessage("galleryMsg", "⚠️ Please select images to upload", true);
+        return;
+      }
 
-  catch(e){
+      const formData = new FormData();
+      formData.append("eventType", eventType);
+      formData.append("eventYear", eventYear);
 
-    msg.innerText = "Server error ❌";
+      for (let i = 0; i < files.length; i++) {
+        formData.append("files", files[i]);
+      }
 
-    msg.style.color = "red";
-  }
-}
-// Placeholder logout function
-function logout(){
+      try {
+        const response = await fetch("http://localhost:8080/gallery/upload", {
+          method: "POST",
+          body: formData
+        });
+        
+        const result = await response.text();
+        showMessage("galleryMsg", result, !response.ok || result.includes("REJECTED"));
+        
+        // Reset file input if successful
+        if (response.ok && !result.includes("REJECTED")) {
+            document.getElementById("galleryImages").value = "";
+        }
+      } catch (error) {
+        showMessage("galleryMsg", "Upload failed ❌ Cannot connect to server.", true);
+      }
+    }
 
-  window.location.href =
-  "admin_login.html";
-}
+    // ==========================================
+    // Upload Bhajan
+    // ==========================================
+    async function uploadBhajan() {
+      const title = document.getElementById("title").value.trim();
+      const lyrics = document.getElementById("lyrics").value.trim();
+      const language = document.getElementById("language").value.trim();
+      const youtubeLink = document.getElementById("youtubeLink").value.trim();
 
-</script>
+      if (!title || !lyrics || !language) {
+        showMessage("msg", "⚠️ Please fill all required fields (Title, Language, Lyrics)", true);
+        return;
+      }
 
+      try {
+        const response = await fetch("http://localhost:8080/admin/addBhajan", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ title, lyrics, language, youtubeLink })
+        });
+
+        const result = await response.text();
+        const isSuccess = result.includes("SUCCESS");
+        
+        showMessage("msg", result, !isSuccess);
+
+        if (isSuccess) {
+          document.getElementById("title").value = "";
+          document.getElementById("lyrics").value = "";
+          document.getElementById("language").value = "";
+          document.getElementById("youtubeLink").value = "";
+        }
+      } catch (e) {
+        showMessage("msg", "Server error ❌ Cannot connect to server.", true);
+      }
+    }
+
+    // ==========================================
+    // Logout
+    // ==========================================
+    function logout() {
+      window.location.href = "admin_login.html";
+    }
+  </script>
 </body>
 </html>

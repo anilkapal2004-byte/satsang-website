@@ -4,274 +4,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VSSUT SATSANG</title>
+  <meta name="description" content="Official website of VSSUT Satsang, Burla - Devoted to Sree Sree Thakur Anukulchandra. Explore prayers, gallery, alumni, oblation, and bhajan lyrics." />
+  <title>VSSUT Satsang - Devoted to Sree Sree Thakur Anukulchandra</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  
-
-  <style>
-    /* Base Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color:  #101010;
-      color: white;
-      padding: 0;
-    }
-    
-
-  
-    .menu-item {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    
-   
-    /* Dropdown menu */
-    .submenu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50px;
-      height: 200vh;
-      background-color: #101010;;
-      overflow-y: auto;
-      z-index: 1000;
-      padding-top: 40px;
-      
-    }
-
-    .submenu a {
-      display: block;
-      padding: 12px 18px;
-      color: white;
-      text-decoration: none;
-      text-align: left;
-    }
-
-    .submenu a:hover {
-      background-color: #222;
-    }
-
-
-
-    /*  hamburger close button cross adjustment*/
-    .submenu > div[onclick] {
-      position: absolute;
-      top: 8px;
-      left: 20px;
-      font-size: 24px;
-      font-weight: 100;
-      letter-spacing: 1px;
-      color: white;
-      cursor: pointer;
-      z-index: 1100;
-      user-select: none;
-    }
-
-    /* Centered image class */
-    .centerImage {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Image container */
-    .image-grid {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-
-    .image-grid div {
-      flex: 1 1 200px;
-      max-width: 265px;
-    }
-
-    .image-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      border: 2px solid white;
-      display: block;
-      margin: 0 auto;
-    }
-
-    
-    /* Search Input */
-    #searchBar {
-      text-align: center;
-      padding: 8px;
-      border: 1px solid #ccc;
-      width: 100%;
-      max-width: 1000px;
-      box-sizing: border-box;
-      margin: 0 auto;
-      display: block;
-      color: #101010;
-      font-size: 16px;
-    }
-
-    .bhajan-entry {
-      display: none;
-      margin-top: 20px;
-      color: white;
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .bhajan-entry h3 {
-      margin-top: 0;
-    }
-
-    .bhajan-entry pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-      font-size: 15px;
-      color: white;
-      margin: 0 0 10px 0;
-    }
-
-    .youtube-link {
-      color: #ff4444;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .youtube-link:hover {
-      text-decoration: underline;
-    }
-
-    
-    /* Responsive styles */
-    @media (max-width: 900px) {
-      .image-grid {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-      }
-
-      .image-grid div {
-        max-width: 350px;
-        width: 90vw;
-      }
-
-      
-    }
-
-    @media (max-width: 800px) {
-  #searchBar {
-    width: 74.5vw;
-    max-width: 90vw;
-    margin: 0 auto; /* centers the search bar */
-    display: block; /* ensures margin auto works properly */
-  }
-}
-
-
-@media (max-width: 600px) {
-      .submenu {
-        width: 100vw !important;
-        padding-top: 50px;
-        height: 100vh;
-      }
-
-      .submenu a {
-        font-size: 18px;
-        padding: 12px 10px;
-      }
-
-      .video-iframe {
-        width: 100% !important;
-        height: auto !important;
-      }
-
-      footer .fa-youtube {
-      font-size: 24px;
-      margin-right: 0.5px;
-      color: white;
-    }
-
-    }
-
-
-
-
-
-    @media (max-width: 900px) {  /* Adjust breakpoint for tablets/mobiles as needed */
-  
-  
-  /* Optionally hide the down triangle if you want */
-  /* .menu-title .triangle {
-    display: none;
-  } */
-  
-  /* Adjust padding and width so no extra space is taken */
-  .menu-title {
-    padding: 0;
-    width: auto;
-  }
-}
-
-  </style>
-</head>
+  </head>
 
 
 
 <body>
   <nav>
-    <div>
-      <div class="menu-item">
-        <div class="menu-title" onclick="toggleMenu('satsangMenu')" aria-label="Toggle Menu" tabindex="0" role="button">
-     <div class="hamburger-icon" aria-hidden="true">
-            <div></div>
-            <div></div>
-            <div></div>
-
-          </div>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="middle_logo.jpg" alt="VSSUT Satsang Logo" loading="lazy">
+        <span>VSSUT Satsang</span>
+      </a>
+      <button class="menu-btn" onclick="toggleMenu('satsangMenu')" aria-label="Open navigation">
+        <div class="hamburger-icon">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </div>
-<!--down triangle style in the search bar of nav-->
-
-   <div class="submenu" id="satsangMenu" aria-label="Satsang Menu" role="menu">
-      <div onclick="closeMenu()" role="button" tabindex="0" aria-label="Close Menu">✕</div>
-      <a href="prayer.html" role="menuitem">Prayer</a>
-      <a href="gallery.html" role="menuitem">Satsang Gallery</a>
-      <a href="alumni.html" role="menuitem">Satsang Alumni</a>
-      <a href="oblation.html" role="menuitem">Oblation</a>
-      <a href="about.html" role="menuitem">About</a>
-      <a href="contact.html" role="menuitem">Contact Us</a>
-
+      </button>
     </div>
   </nav>
+
+  <div class="submenu" id="satsangMenu">
+    <div class="close-menu" onclick="closeMenu()">
+      ✕
+    </div>
+    <a href="index.html">
+      <i class="fas fa-house"></i> Home
+    </a>
+    <a href="about.html">
+      <i class="fas fa-circle-info"></i> About
+    </a>
+    <a href="prayer.html">
+      <i class="fas fa-hands-praying"></i> Prayer
+    </a>
+    <a href="gallery.html">
+      <i class="fas fa-images"></i> Gallery
+    </a>
+    <a href="alumni.html">
+      <i class="fas fa-user-group"></i> Alumni
+    </a>
+    <a href="oblation.html">
+      <i class="fas fa-hand-holding-heart"></i> Oblation
+    </a>
+    <a href="contact.html">
+      <i class="fas fa-envelope"></i> Contact
+    </a>
+  </div>
 
   <section class="SRI SRI THAKUR ANUKULCHANDRA" style="padding: 40px 20px;">
     <div class="carousel-container">
   <div class="carousel-slide">
-    <img src="sree sree Borda.png" alt="Sree Sree Borda" />
+    <img src="sree_sree_Borda.png" alt="Sree Sree Borda" loading="lazy" />
     <p>Sree Sree Borda</p>
   </div>
   <div class="carousel-slide">
-    <img src="sree sree Thakur.png" alt="sree sree Thakur" />
+    <img src="sree_sree_Thakur.png" alt="Sree Sree Thakur Anukulchandra" loading="lazy" />
     <p>Sree Sree Thakur</p>
   </div>
   <div class="carousel-slide">
-    <img src="middle logo.jpg" alt="VSSUT Satsang" />
+    <img src="middle_logo.jpg" alt="VSSUT Satsang Emblem" loading="lazy" />
     <p>VSSUT Satsang</p>
   </div>
   <div class="carousel-slide">
-    <img src="sree sree Boroma.png" alt="sree sree Boroma" />
+    <img src="sree_sree_Boroma.png" alt="Sree Sree Boroma" loading="lazy" />
     <p>Sree Sree Boroma</p>
   </div>
   <div class="carousel-slide">
-    <img src="sree sree Acharyadev.png" alt="sree sree Acharyadev" />
+    <img src="sree_sree_Acharyadev.png" alt="Sree Sree Acharyadev" loading="lazy" />
     <p>Sree Sree Acharyadev</p>
   </div>
 
@@ -289,7 +94,7 @@
   </section>
 
   <section class="intro" aria-label="Welcome Section">
-    <h2>Welcome to VSSUT Satsang</h2>
+    <h1>Welcome to VSSUT Satsang</h1>
   </section>
 
   <div class="intro" aria-label="About VSSUT Satsang">
@@ -336,21 +141,33 @@
  
 
   <script>
-
- // Function to toggle the menu  
- function toggleMenu(menuId) {
-  var menu = document.getElementById(menuId);
-  if (menu) {
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  function toggleMenu(id) {
+    const menu = document.getElementById(id || "satsangMenu");
+    if (menu) {
+      menu.classList.toggle("active");
+    }
   }
-}
 
+  function closeMenu() {
+    const menu = document.getElementById("satsangMenu");
+    if (menu) {
+      menu.classList.remove("active");
+    }
+  }
 
-// Function to close the menu
-function closeMenu() {
-  const el = document.getElementById("satsangMenu");
-  el.style.display = "none";
-}
+  document.addEventListener("click", function (e) {
+    const menu = document.getElementById("satsangMenu");
+    const button = document.querySelector(".menu-btn");
+    if (
+      menu &&
+      button &&
+      menu.classList.contains("active") &&
+      !menu.contains(e.target) &&
+      !button.contains(e.target)
+    ) {
+      menu.classList.remove("active");
+    }
+  });
 
 
 
@@ -404,8 +221,19 @@ slides.forEach((_, index) => {
 });
 const dots = dotsContainer.querySelectorAll('span');
 
+// Helper to check if mobile view
+function isMobileView() {
+  return window.innerWidth <= 992;
+}
+
 // Show slide and update active dot
 function showSlide(index) {
+  if (!isMobileView()) {
+    slides.forEach(slide => {
+      slide.style.display = '';
+    });
+    return;
+  }
   currentSlide = index;
   slides.forEach((slide, i) => {
     slide.style.display = (i === index) ? 'flex' : 'none';
@@ -417,20 +245,27 @@ function showSlide(index) {
 
 // Move by step and trigger auto-slide logic
 function moveCarousel(step) {
+  if (!isMobileView()) return;
   let newIndex = currentSlide + step;
   if (newIndex < 0) newIndex = slides.length - 1;
   if (newIndex >= slides.length) newIndex = 0;
   showSlide(newIndex);
   startAutoSlide();
 }
-// Initialize the carousel
-showSlide(0); // Init
 
-// Automatic slide ONLY after first user action
+// Initialize the carousel
+showSlide(0);
+
+window.addEventListener('resize', () => {
+  showSlide(currentSlide);
+});
+
+// Automatic slide ONLY after first user action on mobile
 let autoSlideInterval = null;
 let started = false;
-// Start auto-slide after user interaction
+
 function startAutoSlide() {
+  if (!isMobileView()) return;
   if (!started) {
     started = true;
   }
@@ -451,12 +286,14 @@ document.querySelectorAll('.carousel-btn').forEach(btn => {
 
 
   <footer>
-    <div>
-      <div>
+    <div class="footer-container">
+      <!-- Contact -->
+      <div class="footer-section">
         <h3>Contact Us</h3>
         <address>
-          Address - Pulaha hall of residence (room no : C-703,704),<br />
-          Vssut burla, Dist- Sambalpur<br />
+          Pulaha Hall of Residence<br>
+          Room No. C-703, 704<br>
+          VSSUT Burla, Dist- Sambalpur<br>
           PIN: 768018, Odisha, India.
         </address>
         <p>
@@ -465,28 +302,44 @@ document.querySelectorAll('.carousel-btn').forEach(btn => {
         </p>
         <p>
           <i class="fab fa-whatsapp"></i>
-          <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer"
-            >Join Our WhatsApp Community</a>
+          <a href="https://chat.whatsapp.com/DoOVp3XVGsDDuMC4pDpR5a?mode=ac_t" target="_blank" rel="noopener noreferrer">
+            Join Our WhatsApp Community
+          </a>
         </p>
       </div>
 
-      <div style="text-align: center;">
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="prayer.html">Prayer</a></p>
+        <p><a href="gallery.html">Gallery</a></p>
+        <p><a href="alumni.html">Alumni</a></p>
+        <p><a href="oblation.html">Oblation</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
         <h3>Follow Us</h3>
-        <div style="display: flex; gap: 20px; justify-content: center; font-size: 24px;">
-          <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-instagram"></i></a>
-          <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer"><i
-              class="fab fa-youtube"></i></a>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/satsangvssut2017?igsh=MXhraXJtMXAycHV4ZQ==" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com/@vssutsatsang?si=Sxl4yScJ0qTKzrz5" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i>
+          </a>
         </div>
+        <a href="admin_login.html" class="admin-link">
+          Admin Login
+        </a>
       </div>
     </div>
-    <p style="text-align: center; margin-top: 30px;">&copy; VSSUT Satsang | All rights reserved</p>
-    <p style="text-align:center; margin-top:10px; font-size:13px; opacity:0.6;">
-  <a href="admin_login.html" style="color:#d6a25e; text-decoration:none;">
-    admin Login
-  </a>
-</p>
 
+    <div class="footer-bottom">
+      &copy; 2026 VSSUT Satsang | All rights reserved
+    </div>
   </footer>
 </body>
 

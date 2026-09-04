@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.beans.factory.annotation.Value;
 
 @RestController
 @RequestMapping("/admin")
 @CrossOrigin(
-    origins = "http://127.0.0.1:5500",
+    origins = "${app.cors.allowed-origin:http://127.0.0.1:5500}",
     allowCredentials = "true"
 )
 public class AdminController {
@@ -25,30 +26,38 @@ public class AdminController {
     
 
     // ================= LOGIN =================
-    @GetMapping("/login")
-public String login(@RequestParam String username,
-                    @RequestParam String password,
-                    HttpSession session) {
+    // POST with a JSON body instead of GET+query params, so the password
+    // never appears in the URL, server access logs, or browser history.
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest request, HttpSession session) {
 
-    Admin admin = adminRepository.findByUsername(username);
+        Admin admin = adminRepository.findByUsername(request.getUsername());
 
-    if (admin == null) {
-        return "USER_NOT_FOUND";
+        if (admin == null) {
+            return "USER_NOT_FOUND";
+        }
+
+        boolean match = passwordEncoder.matches(request.getPassword(), admin.getPassword());
+
+        if (match) {
+            session.setAttribute("admin", admin.getUsername());
+            return "LOGIN_SUCCESS";
+        } else {
+            return "WRONG_PASSWORD";
+        }
     }
 
-    System.out.println("RAW PASSWORD FROM DB = " + admin.getPassword());
-    System.out.println("PASSWORD ENTERED = " + password);
+    // Simple DTO so the password travels in the request body, not the URL.
+    public static class LoginRequest {
+        private String username;
+        private String password;
 
-    boolean match = passwordEncoder.matches(password, admin.getPassword());
-    System.out.println("MATCH RESULT = " + match);
+        public String getUsername() { return username; }
+        public void setUsername(String username) { this.username = username; }
 
-    if (match) {
-        session.setAttribute("admin", admin.getUsername());
-        return "LOGIN_SUCCESS";
-    } else {
-        return "WRONG_PASSWORD";
+        public String getPassword() { return password; }
+        public void setPassword(String password) { this.password = password; }
     }
-}
 
 
 @PostMapping("/addBhajan")
@@ -86,7 +95,12 @@ public String editBhajan(@PathVariable Long id,
 @PutMapping("/addYoutube")
 public String addYoutubeLink(
         @RequestParam String title,
-        @RequestParam String youtubeLink) {
+        @RequestParam String youtubeLink,
+        HttpSession session) {
+
+    if (session.getAttribute("admin") == null) {
+        return "UNAUTHORIZED";
+    }
 
     Lyrics bhajan =
     lyricsRepository.findByTitleIgnoreCase(title);
