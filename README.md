@@ -57,5 +57,7 @@ Features
 - VS Code
 - MySQL Workbench
 - Netlify (Frontend hosting)
+  Live demo of Satsang Website :
+  https://vssutsatsang.netlify.app
 
 
